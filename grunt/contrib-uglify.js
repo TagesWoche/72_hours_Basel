@@ -9,7 +9,7 @@ module.exports = function(grunt) {
           },
           files: {
               'generated/scripts/script.js': ['app/scripts/*.js'],
-              'generated/scripts/vendor.js': ['bower_components/angular/angular.min.js', 'bower_components/angular-i18n/angular-locale_de-ch.js']
+              'generated/scripts/vendor.js': ['bower_components/angular/angular.min.js', 'bower_components/angular-i18n/angular-locale_de-ch.js', 'bower_components/leaflet/dist/leaflet.js']
 
           }
       },
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
           },
           files: {
               'dist/scripts/script.js': ['app/scripts/*.js'],
-              'dist/scripts/vendor.js': ['bower_components/angular/angular.min.js', 'bower_components/angular-i18n/angular-locale_de-ch.js']
+              'dist/scripts/vendor.js': ['bower_components/angular/angular.min.js', 'bower_components/angular-i18n/angular-locale_de-ch.js', 'bower_components/leaflet/dist/leaflet.js']
           }
       }
   });
