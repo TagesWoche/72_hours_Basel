@@ -1,0 +1,24 @@
+{
+  "name": "72 Hours Basel",
+  "version": "0.0.0",
+  "description": "Ultimativer Guide fuer Basel",
+  "authors": [
+    "Felix Michel, Stefan Kempf"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bourbon": "^4.2.6",
+    "angular": "angularjs#^1.5.3"
+  },
+  "devDependencies": {
+    "viscompass": "compass#~0.5.8"
+  }
+}
