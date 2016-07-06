@@ -8,8 +8,5 @@
  *
  * Main module of the application.
  */
-angular
-  .module('projekteApp', [
-    'ngResource',
-    'ngSanitize'
-  ]);
+
+angular.module('projekteApp', ['leaflet-directive']);
