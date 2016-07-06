@@ -4,7 +4,6 @@
   "curly": true,
   "eqeqeq": true,
   "esnext": true,
-  "jasmine": true,
   "latedef": true,
   "noarg": true,
   "node": true,
@@ -12,7 +11,6 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular": false,
-    "inject": false
+    "angular": false
   }
 }
