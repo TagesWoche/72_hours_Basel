@@ -15,14 +15,24 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-controller="MarkersSimpleController">
+  <body>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
-    <leaflet lf-center="basel" event-broadcast="events" markers="markers" height="480px" width="100%"></leaflet>
+    <div ng-controller="MarkersSimpleController" id="mapContainer">
+      <leaflet lf-center="basel" event-broadcast="events" markers="markers" height="480px" width="100%"></leaflet>
+    </div>
+
+    <section ng-controller="dataFeed" id="content">
+        <div ng-repeat="entry in parsedEntries">
+          <p style="font-size: 35px;">{{ entry['titel'] }}</p>
+          <p style="background-color: orange;">{{ entry['inhalt'] }}</p>
+          <img ng-src="images/{{ entry['images'] }}.jpg">
+        </div>
+    </section>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
