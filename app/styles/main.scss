@@ -1,3 +1,130 @@
+@import 'partials/reset'; // reset all tags
+@import 'partials/variables'; // colors, fonts etc...
+@import 'partials/layout'; // responsive grid and media queries
+@import 'https://fonts.googleapis.com/css?family=Roboto:100,400,700,900'; // import Roboto from Google fonts
+
+body {background:#f9f9f9;}
+
+// Map Formats
+
+#mapContainer {
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    transition: all 0.33s ease-out;
+    /* opacity: 0;
+    visibility: hidden; */
+}
+
+#mapContainer > div {
+    height:100%;
+    width:100%;
+}
+
+#mapContainer h1 {
+    font-family:$titel;
+    font-size:80px;
+    z-index:1;
+    color:white;
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    text-align:center;
+    font-weight:bold;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 1);
+    
+    
+}
+#startbutton {
+    font-family:$titel;
+    font-size:25px;
+    color:white;
+    position: fixed;
+    bottom: 10px;
+    left:0;
+    right:0;
+    margin:0 auto;
+    width:250px;
+    text-align:center;
+    display:block;
+    padding:12px 24px;
+    background-color:rgba(0, 0, 0, 0.5);
+    border:1px solid white;
+    text-decoration:none;
+    z-index:1;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+// Navbar Format
+
+nav {
+    width: 100%;
+    height:50px;
+    position:fixed;
+    display:block;
+    background:$darkgrey;
+}
+
+// Content Formats
+
+#content {
+    margin:0 auto;
+    width:100%;
+    max-width:$max-width-content;
+}
+
+#content > article {
+    width:100%;
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    padding-top:32%;
+    margin-bottom:50px;
+}
+
+.articlecontainer {
+    width:80%;
+    background:#fff;
+    margin:0 auto;
+    border-bottom: 4px solid $darkgrey;
+    @media screen and (max-width: $M) {
+        width: 100%;
+    }
+}
+
+.articlecontainer p {
+    font-family:$laufschrift;
+    font-weight:$laufschrift-weight;
+    font-size:$laufschrift-size;
+    padding:0 $padding-articlecontainer 30px $padding-articlecontainer;
+}
+
+.articlecontainer h2 {
+    font-family:$titel;
+    font-weight:$titel-weight; 
+    font-size:$titel-size;
+    color:$darkgrey;
+    padding: 20px $padding-articlecontainer;
+}
+
+#content article > span {
+    color:#fff;
+    font-family:$laufschrift;
+    font-size:$laufschrift-size;
+    font-weight:$laufschrift-weight;
+    margin:-55px 12% 0 0;
+    float:right;
+}
+
+#content article > span strong {
+    font-weight:$titel-weight;
+    font-size:29px;
+}
 // bower:scss
 // endbower
 
@@ -7,4 +134,6 @@
   color: #000;
   padding: 0.2em 0;
 }
+
+
 
