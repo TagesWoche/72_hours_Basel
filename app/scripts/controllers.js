@@ -2,40 +2,91 @@
 
 angular.module('projekteApp')
 
-  .controller('MarkersSimpleController', [ '$scope', function($scope) {
 
+
+  .controller('MarkersSimpleController', [ '$scope', function($scope) {
+    
+      var icons = {
+                eins: {
+                    type: 'div',
+                    iconSize: [10, 10],
+                    className: 'blue',
+                    iconAnchor:  [5, 5]
+                },
+                zwei: {
+                    type: 'div',
+                    iconSize: [10, 10],
+                    className: 'red',
+                    iconAnchor:  [5, 5]
+                }
+            }
+    	               
     angular.extend($scope, {
-      basel: {
-        lat: 47.575,
-        lng: 7.60,
-        zoom: 12
-      },
-      markers: {
-          bar1: {
-              lat: 47.575,
-              lng: 7.61,
-              focus: false,
-              message: '<b>Hey</b>, ich bin Bar1',
-              draggable: false
-          },
-          bar2: {
-              lat: 47.575,
-              lng: 7.62,
-              focus: false,
-              message: '<b>Hey</b>, ich bin Bar2',
-              draggable: false
-          }
-      },
-      position: {
-        lat: 47.575,
-        lng: 7.60
-      },
-      events: { // or just {} //all events
-        markers:{
-          enable: [ 'dragend' ]
-          //logic: 'emit'
+    
+        layers: {
+            baselayers: {
+                        TonerMap: {
+                            name: 'Toner',
+                            type: 'xyz',
+                            url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png'
+                        }
+                    },
+                    overlays: {
+                        hotels: {
+                            type: 'group',
+                            name: 'hotels',
+                            visible: true
+                        },
+
+                        restaurants: {
+                            type: 'group',
+                            name: 'restaurants',
+                            visible: true
+                        }
+                    }
+                },
+        
+        basel: {
+            lat: 47.575,
+            lng: 7.60,
+            zoom: 13
+        },
+        
+        defaults: {
+            scrollWheelZoom: false
+        },
+        
+        markers: {
+            bar1: {
+                layer: 'hotels',
+                lat: 47.575,
+                lng: 7.61,
+                focus: false,
+                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag11" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
+                draggable: false
+            },
+            bar2: {
+                layer: 'restaurants',
+                lat: 47.575,
+                lng: 7.62,
+                focus: false,
+                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag10" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
+                draggable: false
+            }
+        },
+        
+        toggleLayer: function(type)
+                {
+                    $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
+                },
+   
+        events: { // or just {} //all events
+            markers:{
+                enable: [ 'dragend' ]
+                //logic: 'emit'
+            }
         }
-      }
+        
     });
 
     $scope.$on('leafletDirectiveMarker.dragend', function(event, args){
@@ -56,11 +107,18 @@ angular.module('projekteApp')
         var titel = entry['gsx$titel']['$t'];
         var inhalt = entry['gsx$inhalt']['$t'];
         var images = entry['gsx$images']['$t'];
+        var tag = entry['gsx$tag']['$t'];
+        var stunde = entry['gsx$stunde']['$t'];
+        var datum = tag + stunde;
         return {
             titel: titel,
             inhalt: inhalt,
-            images: images
+            images: images,
+            tag: tag,
+            stunde: stunde,
+            datum: datum
         };
+        
     };
     $http.get(url)
         .success(function(response) {
@@ -77,3 +135,41 @@ angular.module('projekteApp')
         return status;
     });
 }]);
+
+
+// change content of startbutton 
+function changeText() {
+    var element = document.getElementById('startbutton');
+    if (element.innerHTML === 'Tour beginnen') element.innerHTML = 'Karte anzeigen';
+        else {
+            element.innerHTML = 'Tour beginnen';
+        }
+    };
+
+function changeTextHotels() {
+    var element = document.getElementById('hotelsbutton');
+    if (element.innerHTML === 'Hotels ausblenden') element.innerHTML = 'Hotels einblenden';
+        else {
+            element.innerHTML = 'Hotels ausblenden';
+        }
+    };
+
+function changeTextRestaurants() {
+    var element = document.getElementById('restaurantbutton');
+    if (element.innerHTML === 'Restaurants ausblenden') element.innerHTML = 'Restaurants einblenden';
+        else {
+            element.innerHTML = 'Restaurants ausblenden';
+        }
+    };
+
+// add hide class to map
+function hidemap() {
+    var element = document.getElementById('mapContainer');
+    if ( document.getElementById("mapContainer").className.match(/(?:^|\s)hide(?!\S)/) ) document.getElementById("mapContainer").className = document.getElementById("mapContainer").className.replace ( /(?:^|\s)hide(?!\S)/g , '' )
+        else {
+            document.getElementById("mapContainer").className += " hide";
+        }
+};
+
+
+
