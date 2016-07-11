@@ -26,9 +26,14 @@ angular.module('projekteApp')
         layers: {
             baselayers: {
                         TonerMap: {
-                            name: 'Toner',
+                            name: 'Basel in Schwarz Weiss',
                             type: 'xyz',
                             url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png'
+                        },
+                    openStreetMap: {
+                            name: 'ganz normale Karte',
+                            type: 'xyz',
+                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                         }
                     },
                     overlays: {
