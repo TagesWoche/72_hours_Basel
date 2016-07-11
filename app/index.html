@@ -23,11 +23,18 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <a id="startbutton" onClick="javascript:changeText(); javascript:hidemap();" href="">Tour beginnen</a>
+    <a id="startbutton" onClick="javascript:changeText(); javascript:hidemap();" href="/#content" target="_self">Tour beginnen</a>
       
     <section ng-controller="MarkersSimpleController" id="mapContainer">
-        <h1>72 Stunden in Basel</h1>
-        <leaflet lf-center="basel" event-broadcast="events" markers="markers" defaults="defaults"></leaflet>
+        <h1>Besuch in Basel</h1>
+        <leaflet lf-center="basel" event-broadcast="events" markers="markers" defaults="defaults" layers="layers"></leaflet>
+        <!-- test with buttons -->
+        <div id="legende">
+            <h2>Legende und Gedöns</h2>
+            <a href="" id="hotelsbutton" ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
+            <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a>
+        </div>
+        
     </section>
       
     <!-- <nav>Navbar</nav> -->

@@ -2,11 +2,49 @@
 
 angular.module('projekteApp')
 
+
+
   .controller('MarkersSimpleController', [ '$scope', function($scope) {
-      
+    
+      var icons = {
+                eins: {
+                    type: 'div',
+                    iconSize: [10, 10],
+                    className: 'blue',
+                    iconAnchor:  [5, 5]
+                },
+                zwei: {
+                    type: 'div',
+                    iconSize: [10, 10],
+                    className: 'red',
+                    iconAnchor:  [5, 5]
+                }
+            }
     	               
     angular.extend($scope, {
     
+        layers: {
+            baselayers: {
+                        TonerMap: {
+                            name: 'Toner',
+                            type: 'xyz',
+                            url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png'
+                        }
+                    },
+                    overlays: {
+                        hotels: {
+                            type: 'group',
+                            name: 'hotels',
+                            visible: true
+                        },
+
+                        restaurants: {
+                            type: 'group',
+                            name: 'restaurants',
+                            visible: true
+                        }
+                    }
+                },
         
         basel: {
             lat: 47.575,
@@ -15,26 +53,32 @@ angular.module('projekteApp')
         },
         
         defaults: {
-            tileLayer: "http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png",
             scrollWheelZoom: false
         },
         
         markers: {
             bar1: {
+                layer: 'hotels',
                 lat: 47.575,
                 lng: 7.61,
                 focus: false,
-                message: '<a href="#" scroll-to="Samstag11" onclick="javascript:hidemap(); javascript:changeText();">click me</a>',
+                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag11" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
                 draggable: false
             },
             bar2: {
+                layer: 'restaurants',
                 lat: 47.575,
                 lng: 7.62,
                 focus: false,
-                message: '<b>Hey</b>, ich bin Bar2',
+                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag10" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
                 draggable: false
             }
         },
+        
+        toggleLayer: function(type)
+                {
+                    $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
+                },
    
         events: { // or just {} //all events
             markers:{
@@ -102,6 +146,22 @@ function changeText() {
         }
     };
 
+function changeTextHotels() {
+    var element = document.getElementById('hotelsbutton');
+    if (element.innerHTML === 'Hotels ausblenden') element.innerHTML = 'Hotels einblenden';
+        else {
+            element.innerHTML = 'Hotels ausblenden';
+        }
+    };
+
+function changeTextRestaurants() {
+    var element = document.getElementById('restaurantbutton');
+    if (element.innerHTML === 'Restaurants ausblenden') element.innerHTML = 'Restaurants einblenden';
+        else {
+            element.innerHTML = 'Restaurants ausblenden';
+        }
+    };
+
 // add hide class to map
 function hidemap() {
     var element = document.getElementById('mapContainer');
@@ -110,4 +170,6 @@ function hidemap() {
             document.getElementById("mapContainer").className += " hide";
         }
 };
+
+
 
