@@ -4,26 +4,35 @@ $S:     480px;
 $M:     768px;
 $L:     1170px;
 
+$max-width-content: 1100px;
 $padding-articlecontainer: 20px;
+$elementmargin: 20px;
 
 // colors
 
-$darkgrey: #243040;
+$darkgrey: #414141;
+$lightgrey: #bbb;
+$tawo: #009640;
+$hellblau: #0078A8;
 
 // fonts
 
-$titel: 'Roboto', sans-serif;
+$titel: 'Heebo', sans-serif;
 $titel-weight: 700;
 $titel-size:53px;
-$laufschrift: 'Roboto', sans-serif;
+$titel-size-mobile:33px;
+$laufschrift: 'Droid Serif', sans-serif;
 $laufschrift-weight: 100;
-$laufschrift-size:22px;
+$laufschrift-size:18px;
+$laufschrift-size-mobile:14px;
+$laufschrift-lineheight-S: 20px;
+$laufschrift-lineheight-M: 30px;
 
 // animation
 
 $animation-duration: 0.7s;
 
 
-// layout options
-$max-width-content: 1100px;
+
+
 

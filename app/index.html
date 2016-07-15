@@ -2,8 +2,8 @@
 <html ng-app="projekteApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
+    <title>Besuch in Basel</title>
+    <meta name="description" content="Hier kommt eine Beschreibung">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -25,15 +25,23 @@
     <!-- Add your site or application content here -->
     <a id="startbutton" onClick="javascript:changeText(); javascript:hidemap();" href="/#content" target="_self">Tour beginnen</a>
       
-    <section ng-controller="MarkersSimpleController" id="mapContainer">
+    <section ng-controller="MarkersController" id="mapContainer">
         <h1>Besuch in Basel</h1>
         <leaflet lf-center="basel" event-broadcast="events" markers="markers" defaults="defaults" layers="layers"></leaflet>
         <!-- test with buttons -->
+        <input type="checkbox" id="mobilenav" class="mobilenav" /><label for="mobilenav"></label>
         <div id="legende">
+            
             <!-- Karte gemäss http://tombatossals.github.io/angular-leaflet-directive/examples/0000-viewer.html#/markers/groups-example -->
-            <h2>Legende und Gedöns</h2>
-            <a href="" id="hotelsbutton" ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
-            <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a>
+            <img src="images/tawo-logo.png"/>
+            <a class="socialshare twitter" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/besuchinbasel/"></a>
+            <a class="socialshare facebook" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/besuchinbasel/&link=http://www.tageswoche.ch/besuchinbasel/&name=Besuch%20in%20Basel%20|%20TagesWoche&description=Entdecke%20Basel%20von%20einer%20neuen%20Seite"></a>
+            <h2>Entdecken Sie Basel</h2>
+            <p>Geniessen Sie Ihren Sommer in Basel mit den TagesWoche Tipps rund um Kultur, Essen und Ausgang. Stöbern Sie durch unsere Ideen via MapMarkers oder starten Sie die komplette Tour.</p>
+            <input id="hotels" type="checkbox" ng-click="toggleLayer('hotels')" checked="checked"><label for="hotels">Hotels</label><br/>
+            <input id="restaurants" type="checkbox" ng-click="toggleLayer('restaurants')" checked="checked"><label for="restaurants">Restaurants</label><br/>
+            <!-- <a href="" id="hotelsbutton"  ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
+            <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a> -->
         </div>
         
     </section>
