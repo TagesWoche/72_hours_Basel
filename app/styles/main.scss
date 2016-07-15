@@ -1,7 +1,6 @@
 @import 'partials/reset'; // reset all tags
 @import 'partials/variables'; // colors, fonts etc...
-@import 'partials/layout'; // responsive grid and media queries
-@import 'https://fonts.googleapis.com/css?family=Roboto:100,400,700,900'; // import Roboto from Google fonts
+@import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Heebo:100,300,400,500,700,800,900'; // import Roboto from Google fonts
 
 body {background:#f9f9f9;}
 
@@ -17,21 +16,159 @@ body {background:#f9f9f9;}
     // opacity: 0; visibility: hidden;
 }
 
+.leaflet-right {
+    display: none;
+}
+
+.leaflet-top {
+    @media screen and (max-width: $M) {
+        top:auto;
+        bottom:75px;            
+        }
+}
+
 #mapContainer > div.angular-leaflet-map {
     height:100%;
     width:100%;
 }
 
-#mapContainer > #legende{
+// Legende
+
+#legende {
     position: fixed;
-    bottom: 50px;
-    right: 0px;
+    bottom: 20%;
+    right: 10px;
     z-index: 1;
-    background:red;
-    padding:40px;
+    background-color:rgba(255,255,255,0.8);
+    padding:30px;
+    width:25%;
+    box-shadow: 5px 5px 30px -8px rgba(0,0,0,0.75);
+        @media screen and (max-width: $M) {
+            width: 80%;
+            height:50px;
+            top:0;
+            left:0;
+            bottom:auto;
+            padding:10px 15% 5px 5%;
+            overflow:hidden;
+            transition:all 0.5s ease;
+        }
+}
+
+#legende h2 {
+    font-family:$laufschrift;
+    font-size:$laufschrift-size;
+    font-weight: $titel-weight;
+    margin-bottom:$elementmargin;
+}
+
+#legende p, #legende label {
+    font-family:$laufschrift;
+    font-size:$laufschrift-size;
+    font-weight: $laufschrift-weight;
+    line-height: $laufschrift-lineheight-S;
+}
+
+#legende p {
+    margin-bottom:$elementmargin;
+}
+#legende img {
+    width:111px;
+    margin-bottom:$elementmargin;
+}
+
+
+// mobile navigation settings
+
+.mobilenav {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+label[for="mobilenav"] {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+    background-size: contain;
+        @media screen and (max-width: $M) {
+            display:inline-block;
+            
+        }
+}
+.mobilenav:checked ~ #legende {
+    height: 400px;
+    
     
 }
 
+// checkboxes
+
+#legende input[type=checkbox] {
+    display: none;
+}
+
+#legende label {
+    display: inline-block;
+    cursor: pointer;
+    margin:0 0 5px 0;
+    padding:0 0 0 25px;
+    position:relative;
+        
+}
+#legende label:before {
+    border-radius: 3px;
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 40px;
+    background-color: $tawo;
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+#legende input:checked + label:before {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    color: #f3f3f3;
+    text-align: center;
+}
+
+.socialshare {
+    display:block;
+    height:40px;
+    width:40px;
+    background-position: 40px 0;
+    background-size:cover;
+    float:right;
+         @media screen and (max-width: $S) {
+            height:25px;
+            width:25px;
+            background-position: 25px 0;
+            margin-top: 8px;
+        }
+}
+
+.socialshare:hover {
+    background-position: 0 0;
+    cursor:pointer !important;
+}
+
+.facebook {
+    background-image: url("../images/social/facebook.png");
+    margin-right:5px;
+}
+.twitter {
+    background-image: url("../images/social/twitter.png");
+}
 #mapContainer h1 {
     font-family:$titel;
     font-size:80px;
@@ -43,9 +180,37 @@ body {background:#f9f9f9;}
     width:100%;
     text-align:center;
     font-weight:bold;
-    text-shadow: 1px 2px 2px rgba(0, 0, 0, 1);
+    text-shadow: 1px 2px 9px rgba(0, 0, 0, 1);
+        @media screen and (max-width: $M) {
+            top:85px;
+            font-size:40px;
+        }
     
-    
+}
+
+.leaflet-popup-content h2 {
+    font-family: $titel;
+    font-size: $laufschrift-size;
+    font-weight: $titel-weight;
+}
+
+.leaflet-popup-content p {
+    font-family: $laufschrift;
+    font-size: $laufschrift-size;
+    font-weight: $laufschrift-weight;
+}
+
+.leaflet-popup-content a {
+    font-family: $laufschrift;
+    font-size: $laufschrift-size;
+    font-weight: $laufschrift-weight;
+    text-decoration:none;
+    color:$tawo;
+}
+
+.leaflet-popup-content a:hover {
+    border-bottom:1px solid;
+    border-bottom-color: $tawo;
 }
 #startbutton {
     font-family:$titel;
@@ -70,15 +235,6 @@ body {background:#f9f9f9;}
     opacity: 0;
     visibility: hidden;
 }
-// Navbar Format
-
-nav {
-    width: 100%;
-    height:50px;
-    position:fixed;
-    display:block;
-    background:$darkgrey;
-}
 
 // Content Formats
 
@@ -92,25 +248,45 @@ nav {
     width:100%;
     background-size:100% auto;
     background-repeat:no-repeat;
-    padding-top:32%;
+    padding-top:34%;
     margin-bottom:50px;
+        @media screen and (max-width: $S) {
+            padding-top:42%;
+    }
+}
+
+#content > article:after {
+    content:"● ● ●";
+    color:$lightgrey;
+    margin: 50px auto;
+    display: table;
+}
+
+#content > article:last-child:after {
+    display:none;
 }
 
 .articlecontainer {
     width:80%;
     background:#fff;
     margin:0 auto;
-    border-bottom: 4px solid $darkgrey;
-    @media screen and (max-width: $M) {
-        width: 100%;
-    }
+    border-bottom: 8px solid $darkgrey;
+    box-shadow: 0px 0px 76px -15px rgba(0,0,0,0.58);
+        @media screen and (max-width: $S) {
+            width: 100%;
+        }
 }
 
 .articlecontainer p {
     font-family:$laufschrift;
     font-weight:$laufschrift-weight;
     font-size:$laufschrift-size;
+    line-height: $laufschrift-lineheight-M;
     padding:0 $padding-articlecontainer 30px $padding-articlecontainer;
+        @media screen and (max-width: $S) {
+            font-size: $laufschrift-size-mobile;
+            line-height: $laufschrift-lineheight-S;
+        }
 }
 
 .articlecontainer h2 {
@@ -119,6 +295,9 @@ nav {
     font-size:$titel-size;
     color:$darkgrey;
     padding: 20px $padding-articlecontainer;
+        @media screen and (max-width: $S) {
+            font-size: $titel-size-mobile;
+        }
 }
 
 #content article > span {
@@ -128,12 +307,18 @@ nav {
     font-weight:$laufschrift-weight;
     margin:-55px 12% 0 0;
     float:right;
+        @media screen and (max-width: $S) {
+            margin-right: 2%;
+        }
 }
 
 #content article > span strong {
     font-weight:$titel-weight;
     font-size:29px;
 }
+
+
+
 // bower:scss
 // endbower
 

@@ -4,56 +4,72 @@ angular.module('projekteApp')
 
 
 
-  .controller('MarkersSimpleController', [ '$scope', function($scope) {
+.controller('MarkersController', [ '$scope', function($scope) {
     
-      var icons = {
-                eins: {
-                    type: 'div',
-                    iconSize: [10, 10],
-                    className: 'blue',
-                    iconAnchor:  [5, 5]
-                },
-                zwei: {
-                    type: 'div',
-                    iconSize: [10, 10],
-                    className: 'red',
-                    iconAnchor:  [5, 5]
-                }
-            }
-    	               
+    var local_icons = {
+        icon1: {
+            iconUrl: '../images/testmarker.png',
+            shadowUrl: '../images/testmarker-shadow.png',
+            iconSize:     [50, 63], // size of the icon
+            shadowSize:   [50, 63], // size of the shadow
+            iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
+            shadowAnchor: [30, 63],  // the same for the shadow
+            popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
+        },
+        icon2: {
+            iconUrl: '../images/testmarker2.png',
+            shadowUrl: '../images/testmarker-shadow.png',
+            iconSize:     [50, 63], // size of the icon
+            shadowSize:   [50, 63], // size of the shadow
+            iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
+            shadowAnchor: [30, 63],  // the same for the shadow
+            popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
+        },
+    };
+                   
     angular.extend($scope, {
+        
+        icons: local_icons,
+        
+        layercontrol: {
+            icons: {
+                uncheck: "fa fa-toggle-off",
+                check: "fa fa-toggle-on"
+            }
+        },
+        
     
         layers: {
             baselayers: {
-                        TonerMap: {
-                            name: 'Basel in Schwarz Weiss',
-                            type: 'xyz',
-                            url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png'
-                        },
-                    openStreetMap: {
-                            name: 'ganz normale Karte',
-                            type: 'xyz',
-                            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                        }
-                    },
-                    overlays: {
-                        hotels: {
-                            type: 'group',
-                            name: 'hotels',
-                            visible: true
-                        },
-
-                        restaurants: {
-                            type: 'group',
-                            name: 'restaurants',
-                            visible: true
-                        }
-                    }
+                TonerMap: {
+                    name: 'Basel in Schwarz Weiss',
+                    type: 'xyz',
+                    url: 'http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png'
                 },
+                openStreetMap: {
+                    name: 'ganz normale Karte',
+                    type: 'xyz',
+                    url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                }
+            },
+            overlays: {
+                hotels: {
+                    type: 'group',
+                    name: 'hotels',
+                    visible: true
+                },
+
+                restaurants: {
+                    type: 'group',
+                    name: 'restaurants',
+                    visible: true
+                }
+            }
+        },
         
         basel: {
-            lat: 47.575,
-            lng: 7.60,
+            // lat: 47.568, lng: 7.605, mobile best position
+            lat: 47.568, lng: 7.63, // desktop best position
             zoom: 13
         },
         
@@ -67,37 +83,41 @@ angular.module('projekteApp')
                 lat: 47.575,
                 lng: 7.61,
                 focus: false,
-                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag11" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
-                draggable: false
+                message: '<h2>Grenzwert</h2><p>Kleine Bar mit Fümoir</p><a href="/#Samstag11" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Weiterlesen »</a>',
+                draggable: false,
+                icon: local_icons.icon1,
             },
             bar2: {
                 layer: 'restaurants',
                 lat: 47.575,
                 lng: 7.62,
                 focus: false,
-                message: '<h2>Ich bin ein Titel</h2><p>Ich bin eine kleine Erklärung</p><a href="/#Samstag10" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Hier gehts zu mir.</a>',
-                draggable: false
+                message: '<h2>Plantanenhof</h2><p>Gutes Essen mit schönem Garten.</p><a href="/#Samstag10" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Weiterlesen »</a>',
+                draggable: false,
+                icon: local_icons.icon2,
             }
         },
-        
-        toggleLayer: function(type)
-                {
-                    $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
-                },
+                
+        toggleLayer: function(type) {
+            $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
+        },
    
-        events: { // or just {} //all events
-            markers:{
+        events: { 
+            markers: {
                 enable: [ 'dragend' ]
-                //logic: 'emit'
             }
         }
         
     });
-
+      
+    
+/*
     $scope.$on('leafletDirectiveMarker.dragend', function(event, args){
       $scope.position.lat = args.model.lat;
       $scope.position.lng = args.model.lng;
     });
+    
+*/
 
   }])
 
@@ -151,6 +171,8 @@ function changeText() {
         }
     };
 
+/* 
+Change Text of more buttons » unused
 function changeTextHotels() {
     var element = document.getElementById('hotelsbutton');
     if (element.innerHTML === 'Hotels ausblenden') element.innerHTML = 'Hotels einblenden';
@@ -166,8 +188,9 @@ function changeTextRestaurants() {
             element.innerHTML = 'Restaurants ausblenden';
         }
     };
-
+*/
 // add hide class to map
+
 function hidemap() {
     var element = document.getElementById('mapContainer');
     if ( document.getElementById("mapContainer").className.match(/(?:^|\s)hide(?!\S)/) ) document.getElementById("mapContainer").className = document.getElementById("mapContainer").className.replace ( /(?:^|\s)hide(?!\S)/g , '' )
