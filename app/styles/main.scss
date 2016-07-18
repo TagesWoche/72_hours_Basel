@@ -231,10 +231,19 @@ label[for="mobilenav"] {
     text-decoration:none;
     z-index:1;
 }
-
+/* replaced by .ng-hide
 .hide {
     opacity: 0;
     visibility: hidden;
+}
+
+*/
+
+.ng-hide:not(.ng-hide-animate) {
+  /* this is just another form of hiding an element */
+  display: block!important;
+  opacity: 0;
+  visibility: hidden;
 }
 
 // Content Formats

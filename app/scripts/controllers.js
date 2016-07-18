@@ -2,11 +2,28 @@
 
 angular.module('projekteApp')
 
+.controller('GuideController', ['$scope', function($scope) {
+    $scope.showmap = true;
+    $scope.buttonText = 'Tour beginnen';
+
+    $scope.toggleMap = function(){
+        if ($scope.showmap === true)
+        {
+            $scope.buttonText = 'Karte anzeigen';
+            $scope.showmap = false;
+        }
+        else
+        {
+            $scope.buttonText = 'Tour beginnen';
+            $scope.showmap = true;
+        }
+    }
+}])
 
 
 .controller('MarkersController', [ '$scope', function($scope) {
     
-    var local_icons = {
+    var localIcons = {
         icon1: {
             iconUrl: '../images/testmarker.png',
             shadowUrl: '../images/testmarker-shadow.png',
@@ -29,12 +46,12 @@ angular.module('projekteApp')
                    
     angular.extend($scope, {
         
-        icons: local_icons,
+        icons: localIcons,
         
         layercontrol: {
             icons: {
-                uncheck: "fa fa-toggle-off",
-                check: "fa fa-toggle-on"
+                uncheck: 'fa fa-toggle-off',
+                check: 'fa fa-toggle-on'
             }
         },
         
@@ -85,7 +102,7 @@ angular.module('projekteApp')
                 focus: false,
                 message: '<h2>Grenzwert</h2><p>Kleine Bar mit Fümoir</p><a href="/#Samstag11" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Weiterlesen »</a>',
                 draggable: false,
-                icon: local_icons.icon1,
+                icon: localIcons.icon1,
             },
             bar2: {
                 layer: 'restaurants',
@@ -94,7 +111,7 @@ angular.module('projekteApp')
                 focus: false,
                 message: '<h2>Plantanenhof</h2><p>Gutes Essen mit schönem Garten.</p><a href="/#Samstag10" target="_self" onclick="javascript:hidemap(); javascript:changeText();">Weiterlesen »</a>',
                 draggable: false,
-                icon: local_icons.icon2,
+                icon: localIcons.icon2,
             }
         },
                 
@@ -121,6 +138,8 @@ angular.module('projekteApp')
 
   }])
 
+//FIXME: Create a dataFeed service or factory in order to retrieve the geodata from google spreadsheet
+    
     .controller('dataFeed', ['$scope', '$http', function($scope,$http) {
 
     var spreadsheet = 'od6';
@@ -129,11 +148,11 @@ angular.module('projekteApp')
 
     var parse = function(entry) {
         console.log(entry);
-        var titel = entry['gsx$titel']['$t'];
-        var inhalt = entry['gsx$inhalt']['$t'];
-        var images = entry['gsx$images']['$t'];
-        var tag = entry['gsx$tag']['$t'];
-        var stunde = entry['gsx$stunde']['$t'];
+        var titel = entry.gsx$titel.$t;
+        var inhalt = entry.gsx$inhalt.$t;
+        var images = entry.gsx$images.$t;
+        var tag = entry.gsx$tag.$t;
+        var stunde = entry.gsx$stunde.$t;
         var datum = tag + stunde;
         return {
             titel: titel,
@@ -143,35 +162,40 @@ angular.module('projekteApp')
             stunde: stunde,
             datum: datum
         };
-        
+
     };
     $http.get(url)
         .success(function(response) {
             var key;
-            var entries = response['feed']['entry'];
+            var entries = response.feed.entry;
             $scope.parsedEntries = [];
             for (key in entries) {
                 var content = entries[key];
                 $scope.parsedEntries.push(parse(content));
                 console.log(content);
             }
-        }).error(function (data, status, headers, config) {
-        alert("error");
+        }).error(function (data, status) {
+        alert('error');
         return status;
     });
 }]);
 
 
-// change content of startbutton 
+/*
+// change content of startbutton / replaced by function toggleMap see above
 function changeText() {
     var element = document.getElementById('startbutton');
-    if (element.innerHTML === 'Tour beginnen') element.innerHTML = 'Karte anzeigen';
-        else {
+    if (element.innerHTML === 'Tour beginnen')
+        {
+            element.innerHTML = 'Karte anzeigen';
+        }
+        else
+        {
             element.innerHTML = 'Tour beginnen';
         }
-    };
+    }
 
-/* 
+/!*
 Change Text of more buttons » unused
 function changeTextHotels() {
     var element = document.getElementById('hotelsbutton');
@@ -188,16 +212,16 @@ function changeTextRestaurants() {
             element.innerHTML = 'Restaurants ausblenden';
         }
     };
-*/
+*!/
 // add hide class to map
 
 function hidemap() {
     var element = document.getElementById('mapContainer');
-    if ( document.getElementById("mapContainer").className.match(/(?:^|\s)hide(?!\S)/) ) document.getElementById("mapContainer").className = document.getElementById("mapContainer").className.replace ( /(?:^|\s)hide(?!\S)/g , '' )
-        else {
-            document.getElementById("mapContainer").className += " hide";
+    if ( element.className.match(/(?:^|\s)hide(?!\S)/) )
+        {
+            element.className = document.getElementById('mapContainer').className.replace(/(?:^|\s)hide(?!\S)/g, '');
         }
-};
-
-
-
+        else {
+           element.className += ' hide';
+        }
+}*/
