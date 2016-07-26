@@ -17,7 +17,7 @@
     
     
   </head>
-  <body ng-controller="GuideController">
+  <body ng-controller="showHideMapCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,7 +25,7 @@
     <!-- Add your site or application content here -->
     <a id="startbutton" ng-click="toggleMap()" href="/#content" target="_self">{{buttonText}}</a>
       
-    <section ng-controller="MarkersController" id="mapContainer" ng-show="showmap">
+    <section ng-controller="mapCtrl" id="mapContainer" ng-show="showmap">
         <h1>Besuch in Basel</h1>
         <leaflet lf-center="basel" event-broadcast="events" markers="markers" defaults="defaults" layers="layers"></leaflet>
         <!-- test with buttons -->
@@ -48,8 +48,8 @@
       
     <!-- <nav>Navbar</nav> -->
 
-    <section ng-controller="dataFeed" id="content">
-        <article ng-repeat="entry in parsedEntries" id="{{ entry.datum }}" style="background-image:url('images/{{ entry['images'] }}.jpg');">
+    <section ng-controller="dataFeedCtrl" id="content">
+        <article ng-repeat="entry in parsedEntries" id="{{ entry.datum }}" style="background-image:url('images/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
