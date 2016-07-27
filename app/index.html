@@ -49,7 +49,7 @@
     <!-- <nav>Navbar</nav> -->
 
     <section ng-controller="dataFeedCtrl" id="content">
-        <article ng-repeat="entry in parsedEntries" id="{{ entry.datum }}" style="background-image:url('images/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}:true" id="{{ entry.datum }}" style="background-image:url('images/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>

@@ -22,31 +22,47 @@ angular.module('projekteApp')
 
     .controller('dataFeedCtrl', ['$scope', 'dataService', function ($scope, dataService) {
 
-            $scope.parsedEntries = [];
-            $scope.httpStatus = 0;
-            $scope.LoadRequest = dataService.loadSpreadsheetData();
-            dataService.loadSpreadsheetData()
-                .then(function(results){
-                    for (var i = 0; i < results.length; i++){
-                        $scope.parsedEntries.push({
-                            titel: results[i].gsx$titel.$t,
-                            inhalt: results[i].gsx$inhalt.$t,
-                            tag: results[i].gsx$tag.$t,
-                            stunde: results[i].gsx$stunde.$t,
-                            images: results[i].gsx$images.$t,
-                            datum: results[i].gsx$tag.$t + results[i].gsx$stunde.$t
+        /* filter for week days */
 
-                        });
-                        }
+        $scope.filterByDay = '';
+        $scope.setDateFriday = new Date('2016, 07, 27');
+        $scope.getDatetime = new Date(); // get the day from user agent
+        $scope.getDatetime.setHours(0,0,0,0);
 
-                    console.log($scope.parsedEntries);
+        if ($scope.getDatetime.valueOf() >= $scope.setDateFriday.valueOf())
+        {
+            $scope.filterByDay = 'Freitag';
+        }
+        else
+        {
+            $scope.filterByDay = 'Samstag';
+        }
+
+        $scope.parsedEntries = [];
+        $scope.httpStatus = 0;
+        $scope.LoadRequest = dataService.loadSpreadsheetData();
+        dataService.loadSpreadsheetData()
+            .then(function(results){
+                for (var i = 0; i < results.length; i++){
+                    $scope.parsedEntries.push({
+                        titel: results[i].gsx$titel.$t,
+                        inhalt: results[i].gsx$inhalt.$t,
+                        tag: results[i].gsx$tag.$t,
+                        stunde: results[i].gsx$stunde.$t,
+                        images: results[i].gsx$images.$t,
+                        datum: results[i].gsx$tag.$t + results[i].gsx$stunde.$t
 
                     });
+                    }
+
+                console.log($scope.parsedEntries);
+
+                });
 
     }])
 
     .controller('mapCtrl', [ '$scope', 'dataService', function ($scope, dataService) {
-        
+
         $scope.markers = [];
 
         $scope.httpStatus = 0;
