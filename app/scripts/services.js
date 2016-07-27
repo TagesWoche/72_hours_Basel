@@ -7,10 +7,13 @@ angular.module('projekteApp')
             var loadSpreadsheetData = function(){
                 console.log('loading..');
                 var deferred = $q.defer();
+                
+                // identify the spreadsheet
                 var sheet = 'od6';
                 var key = '1ymI_YXjTl1qkOzCTHWTMlwI6T3kc4ix3hhdq9Cfw_Yo';
                 var url = 'http://spreadsheets.google.com/feeds/list/' + key + '/' + sheet + '/public/values?alt=json-in-script';
-
+                
+                // get the data
                 $http.jsonp(url + '&callback=JSON_CALLBACK')
                     .success(function(data){
                         console.log('!!', data);

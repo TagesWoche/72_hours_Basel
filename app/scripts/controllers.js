@@ -3,6 +3,9 @@
 angular.module('projekteApp')
 
     .controller('showHideMapCtrl', ['$scope', function($scope) {
+
+        /* toggle visibility of map */
+
         $scope.showmap = true;
         $scope.buttonText = 'Tour beginnen';
 
@@ -27,7 +30,7 @@ angular.module('projekteApp')
         $scope.filterByDay = '';
         $scope.setDateFriday = new Date('2016, 07, 27');
         $scope.getDatetime = new Date(); // get the day from user agent
-        $scope.getDatetime.setHours(0,0,0,0);
+        $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
 
         if ($scope.getDatetime.valueOf() >= $scope.setDateFriday.valueOf())
         {
@@ -37,6 +40,8 @@ angular.module('projekteApp')
         {
             $scope.filterByDay = 'Samstag';
         }
+
+        /* load the content from dataService */
 
         $scope.parsedEntries = [];
         $scope.httpStatus = 0;
@@ -63,6 +68,8 @@ angular.module('projekteApp')
 
     .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', function ($scope, dataService, screenSize) {
 
+        /* set the map positions on mobile and desktop */
+
         if (screenSize.is('xs, sm'))
         {
             // on mobile
@@ -78,6 +85,8 @@ angular.module('projekteApp')
             $scope.zoom = 13;
         }
 
+        /* get the data for the markers array from the dataService */
+
         $scope.markers = [];
 
         $scope.httpStatus = 0;
@@ -88,16 +97,18 @@ angular.module('projekteApp')
             console.log(results);
             for (var i = 0; i < results.length; i++){
                 $scope.markers.push({
-                    lat: parseFloat(results[i].gsx$latitude.$t),
+                    lat: parseFloat(results[i].gsx$latitude.$t),  //use parseFloat() to convert string to integer
                     lng: parseFloat(results[i].gsx$longitude.$t),
                     getMessageScope: function () { return $scope; },
                     message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p><a href="/#' + results[i].gsx$tag.$t + results[i].gsx$stunde.$t +'" target="_self" ng-click="toggleMap()">Weiterlesen »</a>',
-                    icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t),
+                    icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t), //use eval() to convert string to variable
                     layer: results[i].gsx$kategorie.$t
                 });
             }
             console.log($scope.markers);
         });
+
+        /* define the icon style for the map markers */
 
         var localIcons = {
             hotels: {
@@ -144,6 +155,8 @@ angular.module('projekteApp')
                         url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     }
                 },
+
+                // define the layers
                 overlays: {
                     hotels: {
                         type: 'group',
@@ -159,6 +172,7 @@ angular.module('projekteApp')
                 }
             },
 
+            // center position
             basel: {
                 lat: $scope.latitude,
                 lng: $scope.longitude,
@@ -169,14 +183,12 @@ angular.module('projekteApp')
                 scrollWheelZoom: false
             },
 
+            // function to toggle different layers
             toggleLayer: function(type) {
                 $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
             },
 
             events: {
-                markers: {
-                    enable: [ 'dragend' ]
-                }
             }
 
         });
