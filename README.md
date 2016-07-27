@@ -1,12 +1,11 @@
-# projekte
+# 72 Hours Basel
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+This project is a City Guide for Basel created by TagesWoche. It uses angular and leaflet.
+
+## Get the project
+
+Download or clone the project and run `npm install` and `bower install` in order to get all files.
 
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
