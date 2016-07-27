@@ -231,13 +231,14 @@ label[for="mobilenav"] {
     text-decoration:none;
     z-index:1;
 }
-/* replaced by .ng-hide
+
+/* replaced by ng-hide class
+
 .hide {
     opacity: 0;
     visibility: hidden;
-}
+}*/
 
-*/
 
 .ng-hide:not(.ng-hide-animate) {
   /* this is just another form of hiding an element */

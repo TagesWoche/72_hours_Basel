@@ -46,7 +46,7 @@ angular.module('projekteApp')
     }])
 
     .controller('mapCtrl', [ '$scope', 'dataService', function ($scope, dataService) {
-
+        
         $scope.markers = [];
 
         $scope.httpStatus = 0;
@@ -59,8 +59,9 @@ angular.module('projekteApp')
                 $scope.markers.push({
                     lat: parseFloat(results[i].gsx$latitude.$t),
                     lng: parseFloat(results[i].gsx$longitude.$t),
-                    message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p>',
-                    icon: eval(results[i].gsx$icon.$t),
+                    getMessageScope: function () { return $scope; },
+                    message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p><a href="/#' + results[i].gsx$tag.$t + results[i].gsx$stunde.$t +'" target="_self" ng-click="toggleMap()">Weiterlesen »</a>',
+                    icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t),
                     layer: results[i].gsx$kategorie.$t
                 });
             }
@@ -68,7 +69,7 @@ angular.module('projekteApp')
         });
 
         var localIcons = {
-            icon1: {
+            hotels: {
                 iconUrl: '../images/testmarker.png',
                 shadowUrl: '../images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
@@ -77,7 +78,7 @@ angular.module('projekteApp')
                 shadowAnchor: [30, 63],  // the same for the shadow
                 popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
             },
-            icon2: {
+            restaurants: {
                 iconUrl: '../images/testmarker2.png',
                 shadowUrl: '../images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
