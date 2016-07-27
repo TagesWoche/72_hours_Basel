@@ -61,7 +61,22 @@ angular.module('projekteApp')
 
     }])
 
-    .controller('mapCtrl', [ '$scope', 'dataService', function ($scope, dataService) {
+    .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', function ($scope, dataService, screenSize) {
+
+        if (screenSize.is('xs, sm'))
+        {
+            // on mobile
+            $scope.latitude =  47.568;
+            $scope.longitude = 7.605;
+            $scope.zoom = 15;
+        }
+        else
+        {
+            // on desktop
+            $scope.latitude =  47.568;
+            $scope.longitude = 7.63;
+            $scope.zoom = 13;
+        }
 
         $scope.markers = [];
 
@@ -145,9 +160,9 @@ angular.module('projekteApp')
             },
 
             basel: {
-                // lat: 47.568, lng: 7.605, mobile best position
-                lat: 47.568, lng: 7.63, // desktop best position
-                zoom: 13
+                lat: $scope.latitude,
+                lng: $scope.longitude,
+                zoom: $scope.zoom
             },
 
             defaults: {
