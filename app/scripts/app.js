@@ -9,4 +9,4 @@
  * Main module of the application.
  */
 
-angular.module('projekteApp', ['leaflet-directive', 'matchMedia']);
+angular.module('projekteApp', ['leaflet-directive', 'matchMedia', 'ngSanitize']);

@@ -52,7 +52,7 @@
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
-                <p>{{ entry.inhalt }}</p>
+                <p ng-bind-html="entry.inhalt">{{ entry.inhalt }}</p>
             </div>
         </article>  
     </section>
