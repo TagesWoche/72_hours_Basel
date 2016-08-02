@@ -111,7 +111,7 @@ angular.module('projekteApp')
         /* define the icon style for the map markers */
 
         var localIcons = {
-            hotels: {
+            Essen: {
                 iconUrl: '../images/testmarker.png',
                 shadowUrl: '../images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
@@ -120,7 +120,25 @@ angular.module('projekteApp')
                 shadowAnchor: [30, 63],  // the same for the shadow
                 popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
             },
-            restaurants: {
+            Erleben: {
+                iconUrl: '../images/testmarker.png',
+                shadowUrl: '../images/testmarker-shadow.png',
+                iconSize:     [50, 63], // size of the icon
+                shadowSize:   [50, 63], // size of the shadow
+                iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
+                shadowAnchor: [30, 63],  // the same for the shadow
+                popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
+            },
+            Tanzen: {
+                iconUrl: '../images/testmarker.png',
+                shadowUrl: '../images/testmarker-shadow.png',
+                iconSize:     [50, 63], // size of the icon
+                shadowSize:   [50, 63], // size of the shadow
+                iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
+                shadowAnchor: [30, 63],  // the same for the shadow
+                popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
+            },
+            Trinken: {
                 iconUrl: '../images/testmarker2.png',
                 shadowUrl: '../images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
@@ -158,15 +176,24 @@ angular.module('projekteApp')
 
                 // define the layers
                 overlays: {
-                    hotels: {
+                    Essen: {
                         type: 'group',
-                        name: 'hotels',
+                        name: 'Essen',
                         visible: true
                     },
-
-                    restaurants: {
+                    Erleben: {
                         type: 'group',
-                        name: 'restaurants',
+                        name: 'Erleben',
+                        visible: true
+                    },
+                    Trinken: {
+                        type: 'group',
+                        name: 'Trinken',
+                        visible: true
+                    },
+                    Tanzen: {
+                        type: 'group',
+                        name: 'Tanzen',
                         visible: true
                     }
                 }
