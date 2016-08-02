@@ -23,12 +23,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <a id="startbutton" ng-click="toggleMap()" href="/#content" target="_self">{{buttonText}}</a>
+    <a id="startbutton" ng-click="toggleMap()" href="#content" target="_self">{{buttonText}}</a>
       
     <section ng-controller="mapCtrl" id="mapContainer" ng-show="showmap">
         <h1>Besuch in Basel</h1>
         <leaflet lf-center="basel" event-broadcast="events" markers="markers" defaults="defaults" layers="layers"></leaflet>
-        
+
+        <!-- mobile hamburger navigation -->
+        <input type="checkbox" id="mobilenav" class="mobilenav" /><label for="mobilenav"></label>
+
         <div id="legende">
             <!-- Karte gemäss http://tombatossals.github.io/angular-leaflet-directive/examples/0000-viewer.html#/markers/groups-example -->
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
@@ -45,8 +48,6 @@
         </div>
         
     </section>
-      
-    <!-- <nav>Navbar</nav> -->
 
     <section ng-controller="dataFeedCtrl" id="content">
         <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}:true" id="{{ entry.datum }}" style="background-image:url('images/{{ entry.images }}.jpg');">

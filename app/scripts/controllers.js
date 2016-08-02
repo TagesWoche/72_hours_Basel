@@ -100,7 +100,7 @@ angular.module('projekteApp')
                     lat: parseFloat(results[i].gsx$latitude.$t),  //use parseFloat() to convert string to integer
                     lng: parseFloat(results[i].gsx$longitude.$t),
                     getMessageScope: function () { return $scope; },
-                    message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p><a href="/#' + results[i].gsx$tag.$t + results[i].gsx$stunde.$t +'" target="_self" ng-click="toggleMap()">Weiterlesen »</a>',
+                    message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p><a href="#' + results[i].gsx$tag.$t + results[i].gsx$stunde.$t +'" target="_self" ng-click="toggleMap()">Weiterlesen »</a>',
                     icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t), //use eval() to convert string to variable
                     layer: results[i].gsx$kategorie.$t
                 });
@@ -112,8 +112,8 @@ angular.module('projekteApp')
 
         var localIcons = {
             Essen: {
-                iconUrl: '../images/testmarker.png',
-                shadowUrl: '../images/testmarker-shadow.png',
+                iconUrl: 'images/testmarker.png',
+                shadowUrl: 'images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
                 shadowSize:   [50, 63], // size of the shadow
                 iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
@@ -121,8 +121,8 @@ angular.module('projekteApp')
                 popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
             },
             Erleben: {
-                iconUrl: '../images/testmarker.png',
-                shadowUrl: '../images/testmarker-shadow.png',
+                iconUrl: 'images/testmarker.png',
+                shadowUrl: 'images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
                 shadowSize:   [50, 63], // size of the shadow
                 iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
@@ -130,8 +130,8 @@ angular.module('projekteApp')
                 popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
             },
             Tanzen: {
-                iconUrl: '../images/testmarker.png',
-                shadowUrl: '../images/testmarker-shadow.png',
+                iconUrl: 'images/testmarker.png',
+                shadowUrl: 'images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
                 shadowSize:   [50, 63], // size of the shadow
                 iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
@@ -139,8 +139,8 @@ angular.module('projekteApp')
                 popupAnchor:  [-26, -66] // point from which the popup should open relative to the iconAnchor
             },
             Trinken: {
-                iconUrl: '../images/testmarker2.png',
-                shadowUrl: '../images/testmarker-shadow.png',
+                iconUrl: 'images/testmarker2.png',
+                shadowUrl: 'images/testmarker-shadow.png',
                 iconSize:     [50, 63], // size of the icon
                 shadowSize:   [50, 63], // size of the shadow
                 iconAnchor:   [50, 63], // point of the icon which will correspond to marker's location
