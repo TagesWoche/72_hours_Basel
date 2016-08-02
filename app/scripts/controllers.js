@@ -25,7 +25,7 @@ angular.module('projekteApp')
 
     .controller('dataFeedCtrl', ['$scope', 'dataService', function ($scope, dataService) {
 
-        /* filter for week days */
+        /* filter for week days 
 
         $scope.filterByDay = '';
         $scope.setDateFriday = new Date('2016, 07, 27');
@@ -40,7 +40,7 @@ angular.module('projekteApp')
         {
             $scope.filterByDay = 'Samstag';
         }
-
+*/
         /* load the content from dataService */
 
         $scope.parsedEntries = [];
