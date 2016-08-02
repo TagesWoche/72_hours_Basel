@@ -11,14 +11,20 @@ b {
   font-weight: 800;
 }
 
+strong {
+    font-weight: 800;
+}
+
+i {
+    font-style: italic;
+}
+
 #mapContainer {
     position:fixed;
     top:0;
     left:0;
     height:100vh;
     width:100vw;
-    transition: all 0.33s ease-out;
-    // opacity: 0; visibility: hidden;
 }
 
 .leaflet-right {
@@ -236,19 +242,13 @@ label[for="mobilenav"] {
     z-index:1;
 }
 
-/* replaced by ng-hide class
-
-.hide {
-    opacity: 0;
-    visibility: hidden;
-}*/
-
 
 .ng-hide:not(.ng-hide-animate) {
-  /* this is just another form of hiding an element */
-  display: block!important;
-  opacity: 0;
-  visibility: hidden;
+    /* this is just another form of hiding an element */
+    display: block!important;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.33s ease-out;
 }
 
 // Content Formats
@@ -333,10 +333,10 @@ label[for="mobilenav"] {
 }
 
 .browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
 // bower:scss
