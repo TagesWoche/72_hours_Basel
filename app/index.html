@@ -35,14 +35,18 @@
         <div id="legende">
             <!-- Karte gemäss http://tombatossals.github.io/angular-leaflet-directive/examples/0000-viewer.html#/markers/groups-example -->
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
+            <a class="socialshare german" href="#"></a>
+            <a class="socialshare english" href="#"></a>
             <a class="socialshare twitter" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/besuchinbasel/"></a>
             <a class="socialshare facebook" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/besuchinbasel/&link=http://www.tageswoche.ch/besuchinbasel/&name=Besuch%20in%20Basel%20|%20TagesWoche&description=Entdecke%20Basel%20von%20einer%20neuen%20Seite"></a>
+            
             <h2>Entdecken Sie Basel</h2>
-            <p>Geniessen Sie Ihren Sommer in Basel mit den TagesWoche Tipps rund um Kultur, Essen und Ausgang. Stöbern Sie durch unsere Ideen via MapMarkers oder starten Sie die komplette Tour.</p>
+            <p>Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang. Stöbern Sie durch unsere Ideen oder starten Sie die komplette Tour.</p>
             <input id="Trinken" type="checkbox" ng-click="toggleLayer('Trinken')" checked="checked"><label for="Trinken">Trinken</label><br/>
             <input id="Essen" type="checkbox" ng-click="toggleLayer('Essen')" checked="checked"><label for="Essen">Essen</label><br/>
             <input id="Tanzen" type="checkbox" ng-click="toggleLayer('Tanzen')" checked="checked"><label for="Tanzen">Tanzen</label><br/>
             <input id="Erleben" type="checkbox" ng-click="toggleLayer('Erleben')" checked="checked"><label for="Erleben">Erleben</label><br/>
+            <input id="Einkaufen" type="checkbox" ng-click="toggleLayer('Einkaufen')" checked="checked"><label for="Einkaufen">Einkaufen</label><br/>
             <!-- <a href="" id="hotelsbutton"  ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
             <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a> -->
         </div>
@@ -54,7 +58,10 @@
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
+                    
+                <div ng-if="entry.video" class="embed-container"><iframe ng-src="{{ trustSrc(entry.video) }}" frameborder="0" allowfullscreen></iframe></div>
                 <p ng-bind-html="entry.inhalt">{{ entry.inhalt }}</p>
+                <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="{{ entry.link }}" target="_blank">Webseite</a></span>
             </div>
         </article>  
     </section>
