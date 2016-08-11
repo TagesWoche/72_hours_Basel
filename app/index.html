@@ -81,5 +81,46 @@
     <script src="scripts/services.js"></script>
     <script src="scripts/controllers.js"></script>
         <!-- endbuild -->
+
+<!-- Asynchronous google analytics-->
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22593782-4']);
+    _gaq.push(['_setDomainName', 'tageswoche.ch']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+<!-- Chartbeat -->
+<script type='text/javascript'>
+    var _sf_async_config={};
+    /** CONFIGURATION START **/
+    _sf_async_config.uid = 52858;
+    _sf_async_config.domain = 'tageswoche.ch';
+    _sf_async_config.useCanonical = true;
+    _sf_async_config.sections = 'TagesWoche';
+    _sf_async_config.authors = 'Felix Michel, Stefan Kempf';
+    /** CONFIGURATION END **/
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src', 'https://static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+                loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+</script>
+    
 </body>
 </html>
