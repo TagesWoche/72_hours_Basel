@@ -2,7 +2,7 @@
 @import 'partials/variables'; // colors, fonts etc...
 @import 'partials/layout'; // layout
 @import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:400,700'; // import Google fonts
-// all possible fonts in on link @import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:400,700|Nobile:400,700|Heebo:400,700,900|Oswald:400,700|Trirong:400,700|Bitter:400,700|Yrsa:400,70'; // import Google fonts
+// all possible fonts on link @import 'https://fonts.googleapis.com/css?family=Droid+Serif:400,400i,700,700i|Montserrat:400,700|Nobile:400,700|Heebo:400,700,900|Oswald:400,700|Trirong:400,700|Bitter:400,700|Yrsa:400,70'; // import Google fonts
 
 body {background:$lightgrey;}
 html {overflow-y: scroll;}
@@ -11,11 +11,11 @@ html {overflow-y: scroll;}
 
 
 b {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 strong {
-    font-weight: 800;
+    font-weight: 700;
 }
 
 i {
@@ -91,6 +91,11 @@ i {
 #legende img {
     width:111px;
     margin-bottom:$elementmargin;
+        @include MQ(S) {
+            width:100px;
+            margin-top:4px;
+    
+    }
 }
 
 
@@ -215,7 +220,7 @@ label[for="mobilenav"] {
     text-align:center;
     font-weight:bold;
     text-shadow: 1px 2px 9px rgba(0, 0, 0, 1);
-    animation: titelswipe 2s ease-in 5s forwards;
+    animation: titelswipe 1.3s ease-in 3s forwards;
         @include MQ(M) {
             top:85px;
             font-size:40px;
@@ -227,14 +232,23 @@ label[for="mobilenav"] {
 
 .leaflet-popup-content h2 {
     font-family: $titel;
-    font-size: $laufschrift-size;
+    font-size: $laufschrift-size + 11px;
     font-weight: $titel-weight;
+    line-height: $laufschrift-lineheight-M;
+    @include MQ(S) {
+            font-size: $laufschrift-size-mobile + 8px;
+        }
 }
 
 .leaflet-popup-content p {
     font-family: $laufschrift;
     font-size: $laufschrift-size;
     font-weight: $laufschrift-weight;
+    margin-top:8px;
+    @include MQ(S) {
+            font-size: $laufschrift-size-mobile;
+            line-height: $laufschrift-lineheight-S;
+        }
 }
 
 .leaflet-popup-content a {
@@ -249,6 +263,16 @@ label[for="mobilenav"] {
     border-bottom:1px solid;
     border-bottom-color: $tawo;
 }
+
+.leaflet-marker-icon {
+    animation: fadein 1.2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
 #startbutton {
     font-family:$titel;
     font-size:25px;
@@ -340,6 +364,21 @@ label[for="mobilenav"] {
         }
 }
 
+.articlecontainer figure > img {
+    width:100%;
+}
+
+.articlecontainer figure {
+    margin:20px 0 10px 0;
+}
+
+.articlecontainer figure figcaption {
+    color:$mediumgrey;
+    font-family:$titel;
+    font-size:$laufschrift-size - 2px;
+    line-height: normal;
+    
+}
 .articlecontainer h2 {
     font-family:$titel;
     font-weight:$titel-weight; 

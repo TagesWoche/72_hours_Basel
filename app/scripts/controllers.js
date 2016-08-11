@@ -125,7 +125,7 @@ angular.module('projekteApp')
                 shadowSize:   [36, 21], // size of the shadow
                 iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
                 shadowAnchor: [-2, 17],  // the same for the shadow
-                popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [2, -62] // point from which the popup should open relative to the iconAnchor
             },
             Erleben: {
                 iconUrl: 'images/markers/erleben.svg',
@@ -134,7 +134,7 @@ angular.module('projekteApp')
                 shadowSize:   [36, 21], // size of the shadow
                 iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
                 shadowAnchor: [-2, 17],  // the same for the shadow
-                popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [2, -62] // point from which the popup should open relative to the iconAnchor
             },
             Tanzen: {
                 iconUrl: 'images/markers/tanzen.svg',
@@ -143,7 +143,7 @@ angular.module('projekteApp')
                 shadowSize:   [36, 21], // size of the shadow
                 iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
                 shadowAnchor: [-2, 17],  // the same for the shadow
-                popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [2, -62] // point from which the popup should open relative to the iconAnchor
             },
             Trinken: {
                 iconUrl: 'images/markers/trinken.svg',
@@ -152,7 +152,7 @@ angular.module('projekteApp')
                 shadowSize:   [36, 21], // size of the shadow
                 iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
                 shadowAnchor: [-2, 17],  // the same for the shadow
-                popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [2, -62] // point from which the popup should open relative to the iconAnchor
             },
             Einkaufen: {
                 iconUrl: 'images/markers/einkaufen.svg',
@@ -161,7 +161,7 @@ angular.module('projekteApp')
                 shadowSize:   [36, 21], // size of the shadow
                 iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
                 shadowAnchor: [-2, 17],  // the same for the shadow
-                popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
+                popupAnchor:  [2, -62] // point from which the popup should open relative to the iconAnchor
             }
         };
 
