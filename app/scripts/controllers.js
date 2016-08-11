@@ -119,48 +119,48 @@ angular.module('projekteApp')
 
         var localIcons = {
             Essen: {
-                iconUrl: 'images/testmarker.png',
-                shadowUrl: 'images/testmarker-shadow.png',
-                iconSize:     [50, 63], // size of the icon
-                shadowSize:   [50, 63], // size of the shadow
-                iconAnchor:   [30, 40], // point of the icon which will correspond to marker's location
-                shadowAnchor: [17, 40],  // the same for the shadow
+                iconUrl: 'images/markers/essen.svg',
+                shadowUrl: 'images/markers/dropshadow.png',
+                iconSize:     [40, 61], // size of the icon
+                shadowSize:   [36, 21], // size of the shadow
+                iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
+                shadowAnchor: [-2, 17],  // the same for the shadow
                 popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
             },
             Erleben: {
-                iconUrl: 'images/testmarker.png',
-                shadowUrl: 'images/testmarker-shadow.png',
-                iconSize:     [50, 63], // size of the icon
-                shadowSize:   [50, 63], // size of the shadow
-                iconAnchor:   [30, 40], // point of the icon which will correspond to marker's location
-                shadowAnchor: [17, 40],  // the same for the shadow
+                iconUrl: 'images/markers/erleben.svg',
+                shadowUrl: 'images/markers/dropshadow.png',
+                iconSize:     [40, 61], // size of the icon
+                shadowSize:   [36, 21], // size of the shadow
+                iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
+                shadowAnchor: [-2, 17],  // the same for the shadow
                 popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
             },
             Tanzen: {
-                iconUrl: 'images/testmarker.png',
-                shadowUrl: 'images/testmarker-shadow.png',
-                iconSize:     [50, 63], // size of the icon
-                shadowSize:   [50, 63], // size of the shadow
-                iconAnchor:   [30, 40], // point of the icon which will correspond to marker's location
-                shadowAnchor: [17, 40],  // the same for the shadow
+                iconUrl: 'images/markers/tanzen.svg',
+                shadowUrl: 'images/markers/dropshadow.png',
+                iconSize:     [40, 61], // size of the icon
+                shadowSize:   [36, 21], // size of the shadow
+                iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
+                shadowAnchor: [-2, 17],  // the same for the shadow
                 popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
             },
             Trinken: {
-                iconUrl: 'images/testmarker2.png',
-                shadowUrl: 'images/testmarker-shadow.png',
-                iconSize:     [50, 63], // size of the icon
-                shadowSize:   [50, 63], // size of the shadow
-                iconAnchor:   [30, 40], // point of the icon which will correspond to marker's location
-                shadowAnchor: [17, 40],  // the same for the shadow
+                iconUrl: 'images/markers/trinken.svg',
+                shadowUrl: 'images/markers/dropshadow.png',
+                iconSize:     [40, 61], // size of the icon
+                shadowSize:   [36, 21], // size of the shadow
+                iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
+                shadowAnchor: [-2, 17],  // the same for the shadow
                 popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
             },
             Einkaufen: {
-                iconUrl: 'images/testmarker2.png',
-                shadowUrl: 'images/testmarker-shadow.png',
-                iconSize:     [50, 63], // size of the icon
-                shadowSize:   [50, 63], // size of the shadow
-                iconAnchor:   [30, 40], // point of the icon which will correspond to marker's location
-                shadowAnchor: [17, 40],  // the same for the shadow
+                iconUrl: 'images/markers/einkaufen.svg',
+                shadowUrl: 'images/markers/dropshadow.png',
+                iconSize:     [40, 61], // size of the icon
+                shadowSize:   [36, 21], // size of the shadow
+                iconAnchor:   [18, 57], // point of the icon which will correspond to marker's location
+                shadowAnchor: [-2, 17],  // the same for the shadow
                 popupAnchor:  [-4, -46] // point from which the popup should open relative to the iconAnchor
             }
         };
