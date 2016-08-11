@@ -87,8 +87,8 @@ angular.module('projekteApp')
         else
         {
             // on desktop
-            $scope.latitude =  47.568;
-            $scope.longitude = 7.63;
+            $scope.latitude =  47.5592229;
+            $scope.longitude = 7.5960018;
             $scope.zoom = 13;
         }
 
@@ -178,6 +178,11 @@ angular.module('projekteApp')
 
             layers: {
                 baselayers: {
+                    MapBoxTile: {
+                        name: 'Basel in Schwarz Weiss',
+                        type: 'xyz',
+                        url: 'https://a.tiles.mapbox.com/v4/felixmichel.me37n7fa/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZmVsaXhtaWNoZWwiLCJhIjoiZWZrazRjOCJ9.62fkOEqGMxFxJZPJuo2iIQ'
+                    },
                     TonerMap: {
                         name: 'Basel in Schwarz Weiss',
                         type: 'xyz',
