@@ -80,16 +80,16 @@ angular.module('projekteApp')
         if (screenSize.is('xs, sm'))
         {
             // on mobile
-            $scope.latitude =  47.568;
-            $scope.longitude = 7.605;
-            $scope.zoom = 15;
+            $scope.latitude =  47.5655;
+            $scope.longitude = 7.5965;
+            $scope.zoom = 14;
         }
         else
         {
             // on desktop
-            $scope.latitude =  47.5592229;
-            $scope.longitude = 7.5960018;
-            $scope.zoom = 13;
+            $scope.latitude =  47.5592;
+            $scope.longitude = 7.5999;
+            $scope.zoom = 14;
         }
 
         /* get the data for the markers array from the dataService */
