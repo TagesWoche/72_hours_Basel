@@ -220,7 +220,7 @@ angular.module('projekteApp')
                     },
                 }
             },
-
+            
             // center position
             basel: {
                 lat: $scope.latitude,
