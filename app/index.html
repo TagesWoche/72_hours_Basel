@@ -41,12 +41,30 @@
             <a class="socialshare facebook" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/besuchinbasel/&link=http://www.tageswoche.ch/besuchinbasel/&name=Besuch%20in%20Basel%20|%20TagesWoche&description=Entdecke%20Basel%20von%20einer%20neuen%20Seite"></a>
             
             <h2>Entdecken Sie Basel</h2>
-            <p>Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang. Stöbern Sie durch unsere Ideen oder starten Sie die komplette Tour.</p>
-            <input id="Trinken" type="checkbox" ng-click="toggleLayer('Trinken')" checked="checked"><label for="Trinken">Trinken</label><br/>
-            <input id="Essen" type="checkbox" ng-click="toggleLayer('Essen')" checked="checked"><label for="Essen">Essen</label><br/>
-            <input id="Tanzen" type="checkbox" ng-click="toggleLayer('Tanzen')" checked="checked"><label for="Tanzen">Tanzen</label><br/>
-            <input id="Erleben" type="checkbox" ng-click="toggleLayer('Erleben')" checked="checked"><label for="Erleben">Erleben</label><br/>
-            <input id="Einkaufen" type="checkbox" ng-click="toggleLayer('Einkaufen')" checked="checked"><label for="Einkaufen">Einkaufen</label><br/>
+            <p>Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang. Stöbern Sie durch unsere Ideen oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die komplette Tour</a>.</p>
+            <div id="inputwrap">
+            <input id="Essen" type="checkbox" ng-click="toggleLayer('Essen')"  ng-checked="checked"><label for="Essen">Essen</label>
+            <input id="Trinken" type="checkbox" ng-click="toggleLayer('Trinken')" ng-checked="checked"><label for="Trinken">Trinken</label>
+            <input id="Einkaufen" type="checkbox" ng-click="toggleLayer('Einkaufen')" ng-checked="checked"><label for="Einkaufen">Einkaufen</label>
+            <input id="Tanzen" type="checkbox" ng-click="toggleLayer('Tanzen')" ng-checked="checked"><label for="Tanzen">Tanzen</label>
+            <input id="Erleben" type="checkbox" ng-click="toggleLayer('Erleben')" ng-checked="checked"><label for="Erleben">Erleben</label>
+          
+                
+                
+                
+            <input type="checkbox" ng-model="checked" id="masterchecker" ng-init="checked=true"
+                   
+                   ng-click="toggleLayerAll('Essen'); toggleLayerAll('Trinken'); toggleLayerAll('Einkaufen'); toggleLayerAll('Tanzen'); toggleLayerAll('Erleben'); ">
+                <label for="masterchecker">Check me to check all</label>
+                
+           
+
+
+               
+                
+            
+            </div>
+            
             <!-- <a href="" id="hotelsbutton"  ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
             <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a> -->
         </div>

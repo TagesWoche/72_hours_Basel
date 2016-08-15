@@ -221,7 +221,7 @@ angular.module('projekteApp')
                         type: 'group',
                         name: 'Einkaufen',
                         visible: true
-                    }
+                    },
                 }
             },
 
@@ -239,6 +239,15 @@ angular.module('projekteApp')
             // function to toggle different layers
             toggleLayer: function(type) {
                 $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
+            },
+            
+            toggleLayerAll: function(type) {
+                if ($scope.checked === true) {
+                    $scope.layers.overlays[type].visible = true;
+                }
+                else {
+                    $scope.layers.overlays[type].visible = false;
+                }
             },
 
             events: {
