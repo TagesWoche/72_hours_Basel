@@ -63,8 +63,6 @@ angular.module('projekteApp')
                     });
                     }
 
-                console.log($scope.parsedEntries);
-
                 });
         
         $scope.trustSrc = function(src) {
@@ -101,8 +99,7 @@ angular.module('projekteApp')
         dataService.loadSpreadsheetData()
 
         .then(function (results) {
-            console.log(results);
-            for (var i = 0; i < results.length; i++){
+            for (var i = 0; i < results.length; i++) {
                 $scope.markers.push({
                     lat: parseFloat(results[i].gsx$latitude.$t),  //use parseFloat() to convert string to integer
                     lng: parseFloat(results[i].gsx$longitude.$t),
@@ -112,7 +109,6 @@ angular.module('projekteApp')
                     layer: results[i].gsx$kategorie.$t
                 });
             }
-            console.log($scope.markers);
         });
 
         /* define the icon style for the map markers */
@@ -238,18 +234,23 @@ angular.module('projekteApp')
 
             // function to toggle different layers
             toggleLayer: function(type) {
-                $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
-            },
-            
-            toggleLayerAll: function(type) {
-                if ($scope.checked === true) {
-                    $scope.layers.overlays[type].visible = true;
-                }
-                else {
-                    $scope.layers.overlays[type].visible = false;
-                }
-            },
+                if (type === "all") {
+                    for (var key in $scope.layers.overlays) {
 
+                        if ($scope.checked === true) {
+                            $scope.layers.overlays[key].visible = true;
+                        }
+                        else {
+                            $scope.layers.overlays[key].visible = false;
+                        }
+
+                    }
+                }
+                else
+                {
+                    $scope.layers.overlays[type].visible = !$scope.layers.overlays[type].visible;
+                }
+            },
             events: {
             }
 

@@ -5,7 +5,6 @@ angular.module('projekteApp')
         '$q', '$http',
         function ($q, $http) {
             var loadSpreadsheetData = function(){
-                console.log('loading..');
                 var deferred = $q.defer();
                 
                 // identify the spreadsheet
@@ -16,7 +15,6 @@ angular.module('projekteApp')
                 // get the data
                 $http.jsonp(url + '&callback=JSON_CALLBACK')
                     .success(function(data){
-                        console.log('!!', data);
                         var results = [];
                         var feed = data.feed;
                         var entries = feed.entry || [];
