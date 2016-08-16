@@ -144,10 +144,10 @@ label[for="mobilenav"] {
     margin:50px auto 30px auto;
 }
 
-/*
+
 #legende input[type=checkbox] {
     display: none;
-}*/
+}
 
 #legende label {
     display: inline-block;
@@ -187,9 +187,14 @@ label[for="mobilenav"] {
     background: url("../images/labels/erleben.svg") no-repeat top center;
     background-size:41px;
 }
-#inputwrap > label:nth-child(12):before {
-    background:black;
+
+#legende label:nth-child(12) {
+    background: url("../images/labels/allekategorien.svg") no-repeat top center;
+    background-size:41px;
 }
+
+
+
 
 
 #legende label:before {
@@ -281,6 +286,7 @@ label[for="mobilenav"] {
 }
 
 .leaflet-popup-content h2 {
+    padding-top:6px;
     font-family: $titel;
     font-size: $laufschrift-size + 11px;
     font-weight: $titel-weight;
@@ -342,7 +348,13 @@ label[for="mobilenav"] {
     border:1px solid white;
     text-decoration:none;
     z-index:3;
+    transition:background 1s ease;
 }
+
+#startbutton:hover {
+    background-color:rgba(0, 0, 0, 0.8);
+}
+
 
 
 .ng-hide:not(.ng-hide-animate) {
@@ -365,15 +377,15 @@ label[for="mobilenav"] {
     width:100%;
     background-size:100% auto;
     background-repeat:no-repeat;
-    padding-top:34%;
+    padding-top:40%;
     margin-bottom:50px;
         @include MQ(M) {
             background-size: 120% auto;
             background-position: top center;
-            padding-top:42%;
+            
     }
         @include MQ(S) {
-            padding-top:59%;
+            padding-top:68%;
             background-size: 140% auto;
             
         }
@@ -386,10 +398,11 @@ label[for="mobilenav"] {
     display: table;
 }
 
+/*
 #content > article:last-child:after {
     display:none;
 }
-
+*/
 .articlecontainer {
     width:80%;
     background:#fff;
@@ -515,6 +528,39 @@ label[for="mobilenav"] {
 
 .post-meta a:hover {
     text-decoration: underline;
+}
+
+footer {
+    display:block;
+    height:110px;
+    width:100%;
+    background:$lightgrey;
+    
+}
+
+/*
+footer:after {
+    content:"● ● ●";
+    color:$mediumgrey;
+    margin: 50px auto;
+    display: table;
+}
+*/
+footer p {
+    width:100%;
+    max-width:1100px;
+    margin:0 auto 100px auto;
+    text-align: right;
+    padding-top:15px;
+    color:$darkgrey;
+    font-family:$titel;
+    font-weight:$laufschrift-weight;
+    font-size:$laufschrift-size-mobile;
+    line-height: $laufschrift-lineheight-M;
+            @include MQ(S) {
+            font-size: $laufschrift-size-mobile;
+            line-height: $laufschrift-lineheight-S;
+        }
 }
 
 .browsehappy {

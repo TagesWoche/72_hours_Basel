@@ -3,8 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Besuch in Basel</title>
-    <meta name="description" content="Hier kommt eine Beschreibung">
+    <meta name="description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang.">
+    <meta name="author" content="Felix Michel" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url"           content="http://localhost:9000/#/content" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Besuch in Basel" />
+	<meta property="og:description"   content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang." />
+	<meta property="og:image"         content="images/social/fbshare.jpg" />
+
+
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -18,6 +26,8 @@
     
   </head>
   <body ng-controller="showHideMapCtrl">
+
+      
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -37,8 +47,8 @@
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
             <!-- <a class="socialshare german" href="#"></a> -->
             <a class="socialshare english" href="#"></a>
-            <a class="socialshare twitter" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/besuchinbasel/"></a>
-            <a class="socialshare facebook" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/besuchinbasel/&link=http://www.tageswoche.ch/besuchinbasel/&name=Besuch%20in%20Basel%20|%20TagesWoche&description=Entdecke%20Basel%20von%20einer%20neuen%20Seite"></a>
+            <a class="socialshare twitter" target="_blank" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/cityguide/"></a>
+            <a class="socialshare facebook" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/cityguide/&link=http://www.tageswoche.ch/cityguide/&name=Besuch%20in%20Basel&description=Geniessen%20Sie%20Basel%20mit%20den%20TagesWoche%20Tipps%20rund%20um%20Kultur,%20Shopping,%20Essen%20und%20Ausgang"></a>
             
             <h2>Entdecken Sie Basel</h2>
             <p>Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang. Stöbern Sie durch unsere Ideen oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die komplette Tour</a>.</p>
@@ -51,7 +61,7 @@
                 
                 
             <input type="checkbox" ng-model="checked" id="masterchecker" ng-init="checked=true" ng-click="toggleLayer('all');">
-                <label for="masterchecker">Check me to check all</label>
+                <label for="masterchecker">Alle<br/>Tipps</label>
             
             </div>
             
@@ -62,7 +72,7 @@
     </section>
 
     <section ng-controller="dataFeedCtrl" id="content">
-        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}:true" id="{{ entry.datum }}" style="background-image:url('images/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}:true" id="{{ entry.datum }}" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
@@ -73,6 +83,17 @@
             </div>
         </article>  
     </section>
+      
+    <footer>
+    <p>
+        <b>Konzept:</b> Renato Beck, Felix Michel, Stefan Kempf<br>
+        <b>Webdesign:</b> Felix Michel, Stefan Kempf<br>
+        <b>Autoren:</b> Redaktoren TagesWoche
+        
+        
+    </p>
+      
+    </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
