@@ -115,11 +115,13 @@ angular.module('projekteApp')
                 $scope.markers.push({
                     lat: parseFloat(results[i].gsx$latitude.$t),  //use parseFloat() to convert string to integer
                     lng: parseFloat(results[i].gsx$longitude.$t),
+                    tag: results[i].gsx$tag.$t,
                     getMessageScope: function () { return $scope; },
                     message: '<h2>' + results[i].gsx$titelkarte.$t + '</h2><p>' + results[i].gsx$beschreibungkarte.$t + '</p><a href="#' + results[i].gsx$tag.$t + results[i].gsx$stunde.$t +'" target="_self" ng-click="toggleMap()">Weiterlesen »</a>',
                     icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t), //use eval() to convert string to variable
                     layer: results[i].gsx$kategorie.$t
                 });
+                console.log($scope.markers);
             }
         });
 
@@ -229,7 +231,7 @@ angular.module('projekteApp')
                         type: 'group',
                         name: 'Einkaufen',
                         visible: true
-                    },
+                    }
                 }
             },
             

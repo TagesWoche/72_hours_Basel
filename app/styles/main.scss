@@ -72,6 +72,7 @@ i {
             bottom:auto;
             padding:10px 5% 5px 5%;
             overflow:hidden;
+            background-color:rgba(255,255,255,0.9);
             transition:all 0.5s ease;
         }
 }
@@ -484,7 +485,7 @@ label[for="mobilenav"] {
     width:100%;
     background-size:100% auto;
     background-repeat:no-repeat;
-    padding-top:40%;
+    padding-top:41%;
     margin-bottom:50px;
         @include MQ(M) {
             background-size: 120% auto;
