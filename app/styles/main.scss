@@ -209,13 +209,21 @@ label[for="mobilenav"] {
         }
 }
 .mobilenav:checked ~ #legende {
-    height: 450px;
+    height: 350px;
+         @include MQ(S) {
+            height:450px;
+            
+        }
 }
 
 // checkboxes
 #inputwrap {
     display:table;
     margin:50px auto 30px auto;
+    @include MQ(S) {
+         margin-top:30px;
+            
+        }
 }
 
 
@@ -656,10 +664,27 @@ footer p {
     font-weight:$laufschrift-weight;
     font-size:$laufschrift-size-mobile;
     line-height: $laufschrift-lineheight-M;
-            @include MQ(S) {
-            font-size: $laufschrift-size-mobile;
+        
+        @include MQ(L) {
+            width:90%;
+            padding-right:10%;
+    }
+        @include MQ(M) {
+            width:95%;
+            padding-right:5%;
+    }
+        @include MQ(S) {
+            width:95%;
+            padding-right:20px;
+            font-size: $laufschrift-size-mobile - 2px;
             line-height: $laufschrift-lineheight-S;
         }
+}
+
+footer p b{
+    @include MQ(S) {
+        display:block;
+    }
 }
 
 .browsehappy {

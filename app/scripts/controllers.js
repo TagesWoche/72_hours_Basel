@@ -47,8 +47,9 @@ angular.module('projekteApp')
         }
         else {
             $scope.filterByDay = '';
+            $scope.startbuttonLink = '#content';
         }
-    }])
+    }]) 
 
     .controller('dataFeedCtrl', ['$scope', 'dataService', '$sce', function ($scope, dataService, $sce) {
 
