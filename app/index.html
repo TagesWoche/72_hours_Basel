@@ -72,6 +72,14 @@
     </section>
 
     <section ng-controller="dataFeedCtrl" id="content">
+        <div id="articleheader">
+            <div>
+            <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
+            <a href="#Freitag9" target="_self">FR</a>
+            <a href="#Samstag9" target="_self">SA</a>    
+            <a href="#Sonntag10" target="_self">SO</a>
+            </div>
+        </div>
         <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}:true" id="{{ entry.datum }}" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
