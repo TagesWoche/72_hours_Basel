@@ -149,7 +149,7 @@ module.exports = function (grunt) {
     postcss: {
       options: {
         processors: [
-          require('autoprefixer-core')({browsers: ['last 1 version']})
+          require('autoprefixer-core')({browsers: ['last 5 versions']})
         ]
       },
       server: {
@@ -220,7 +220,7 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.dist %>/images/{,*/}.{png,jpg,jpeg,gif,webp,svg}', // remove * in order to keep the same image names
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
