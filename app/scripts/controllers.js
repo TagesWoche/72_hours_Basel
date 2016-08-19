@@ -25,9 +25,9 @@ angular.module('projekteApp')
         // filter for week days
 
         $scope.filterByDay = '';
-        $scope.setDateFriday = new Date('2016, 08, 19');
-        $scope.setDateSaturday = new Date('2016, 08, 20');
-        $scope.setDateSunday = new Date('2016, 08, 21');
+        $scope.setDateFriday = new Date('2016, 08, 26');
+        $scope.setDateSaturday = new Date('2016, 08, 27');
+        $scope.setDateSunday = new Date('2016, 08, 28');
         $scope.getDatetime = new Date(); // get the day from user agent
         $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
 

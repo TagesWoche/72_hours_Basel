@@ -543,13 +543,15 @@ label[for="mobilenav"] {
 
 .articlecontainer figure {
     margin:20px 0 10px 0;
+    background:$lightgrey;
 }
 
 .articlecontainer figure figcaption {
-    color:$mediumgrey;
+    color:$darkgrey;
     font-family:$titel;
-    font-size:$laufschrift-size - 2px;
+    font-size:$laufschrift-size - 3px;
     line-height: normal;
+    padding: 0 10px 10px 10px;
     
 }
 .articlecontainer h2 {
