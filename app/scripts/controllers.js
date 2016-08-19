@@ -4,26 +4,7 @@ angular.module('projekteApp')
 
     .controller('showHideMapCtrl', ['$scope', function($scope) {
 
-        /* toggle visibility of map */
-
-        $scope.showmap = true;
-        $scope.buttonText = 'Tour beginnen';
-
-        $scope.toggleMap = function(){
-            if ($scope.showmap === true)
-            {
-                $scope.buttonText = 'Karte anzeigen';
-                $scope.showmap = false;
-            }
-            else
-            {
-                $scope.buttonText = 'Tour beginnen';
-                $scope.showmap = true;
-            }
-        };
-
-        // filter for week days
-
+        // define filter for week days
         $scope.filterByDay = '';
         $scope.setDateFriday = new Date('2016, 08, 26');
         $scope.setDateSaturday = new Date('2016, 08, 27');
@@ -49,6 +30,25 @@ angular.module('projekteApp')
             $scope.filterByDay = '';
             $scope.startbuttonLink = '#content';
         }
+
+        /* toggle visibility of map */
+
+        $scope.showmap = true;
+        $scope.buttonText = 'Tour beginnen';
+
+        $scope.toggleMap = function(){
+            if ($scope.showmap === true)
+            {
+                $scope.buttonText = 'Karte anzeigen';
+                $scope.showmap = false;
+            }
+            else
+            {
+                $scope.buttonText = 'Tour beginnen';
+                $scope.showmap = true;
+            }
+        };
+
     }]) 
 
     .controller('dataFeedCtrl', ['$scope', 'dataService', '$sce', function ($scope, dataService, $sce) {
@@ -87,7 +87,7 @@ angular.module('projekteApp')
 
     }])
 
-    .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', function ($scope, dataService, screenSize) {
+    .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', '$filter', function ($scope, dataService, screenSize, $filter) {
 
         /* set the map positions on mobile and desktop */
 
@@ -125,8 +125,29 @@ angular.module('projekteApp')
                     icon: eval('localIcons' + '.' + results[i].gsx$kategorie.$t), //use eval() to convert string to variable
                     layer: results[i].gsx$kategorie.$t
                 });
-                console.log($scope.markers);
+
             }
+            // define filter for week days
+            $scope.filterByDay = '';
+            $scope.setDateFriday = new Date('2016, 08, 26');
+            $scope.setDateSaturday = new Date('2016, 08, 27');
+            $scope.setDateSunday = new Date('2016, 08, 28');
+            $scope.getDatetime = new Date(); // get the day from user agent
+            $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+
+            if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
+            {
+                $scope.markers = $filter('filter')($scope.markers, {tag: 'Freitag'});
+            }
+            else if ($scope.getDatetime.valueOf() === $scope.setDateSaturday.valueOf())
+            {
+                $scope.markers = $filter('filter')($scope.markers, {tag: 'Samstag'});
+            }
+            else if ($scope.getDatetime.valueOf() === $scope.setDateSunday.valueOf())
+            {
+                $scope.markers = $filter('filter')($scope.markers, {tag: 'Sonntag'});
+            }
+            console.log($scope.markers);
         });
 
         /* define the icon style for the map markers */
