@@ -7,6 +7,70 @@
 body {background:$lightgrey;}
 html {overflow-y: scroll;}
 
+.spinner {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 99;
+    text-align: center;
+}
+
+.inner-spinner {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 50px 50px 0;
+    border-color: transparent #008147 transparent transparent;
+    opacity: 0;
+
+    margin: 30% auto;
+    animation: rotate-triangle 2.4s infinite ease-in-out;
+    animation-delay: 1s;
+    @include MQ(M) {
+        margin-top: 60%;
+    }
+}
+
+@keyframes rotate-triangle {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        border-width: 0 50px 50px 0;
+        opacity: 1;
+        }
+    14% {
+        border-width: 0 45px 45px 0;
+        }
+    25% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+        border-width: 0 50px 50px 0;
+        }
+    37% {
+        border-width: 0 45px 45px 0;
+        }
+    50% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+        border-width: 0 50px 50px 0;
+        }
+    67% {
+        border-width: 0 45px 45px 0;
+        }
+    75% {
+        transform: perspective(120px) rotateX(-360deg) rotateY(-180deg);
+        border-width: 0 50px 50px 0;
+        }
+    87% {
+        border-width: 0 45px 45px 0;
+        }
+    100% {
+        transform: perspective(120px) rotateX(-360deg) rotateY(-360deg);
+        border-width: 0 50px 50px 0;
+        opacity: 1;
+        }
+}
+
 // Map Formats
 
 
@@ -276,10 +340,6 @@ label[for="mobilenav"] {
     background-size:41px;
 }
 
-
-
-
-
 #legende label:before {
     
     content: "";
@@ -364,10 +424,10 @@ label[for="mobilenav"] {
     
     100% {opacity:0; visibility: hidden;}
 }
-#mapContainer h1 {
+.starttitel {
     font-family:$titel;
     font-size:80px;
-    z-index:2;
+    z-index:100;
     color:white;
     position:fixed;
     top:20px;
