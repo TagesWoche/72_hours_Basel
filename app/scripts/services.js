@@ -33,4 +33,24 @@ angular.module('projekteApp')
         return {
             loadSpreadsheetData: loadSpreadsheetData
         };
-    }]);
+    }])
+
+    .factory('dateFilter', function () {
+
+        var setDateFriday = new Date('2016, 08, 26');
+        var setDateSaturday = new Date('2016, 08, 27');
+        var setDateSunday = new Date('2016, 08, 28');
+
+        // get the day from user agent
+        var getDatetime = new Date();
+        getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+
+        return {
+            setDateFriday : setDateFriday,
+            setDateSaturday: setDateSaturday,
+            setDateSunday: setDateSunday,
+            getDatetime: getDatetime
+
+        };
+
+    });

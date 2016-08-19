@@ -2,15 +2,14 @@
 
 angular.module('projekteApp')
 
-    .controller('showHideMapCtrl', ['$scope', function($scope) {
+    .controller('showHideMapCtrl', ['$scope', 'dateFilter', function($scope, dateFilter) {
 
         // define filter for week days
         $scope.filterByDay = '';
-        $scope.setDateFriday = new Date('2016, 08, 26');
-        $scope.setDateSaturday = new Date('2016, 08, 27');
-        $scope.setDateSunday = new Date('2016, 08, 28');
-        $scope.getDatetime = new Date(); // get the day from user agent
-        $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+        $scope.setDateFriday = dateFilter.setDateFriday;
+        $scope.setDateSaturday =  dateFilter.setDateSaturday;
+        $scope.setDateSunday = dateFilter.setDateSunday;
+        $scope.getDatetime = dateFilter.getDatetime;
 
         if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
         {
@@ -55,6 +54,9 @@ angular.module('projekteApp')
 
         /* load the content from dataService */
 
+        $scope.name = dataService.name;
+        console.log($scope.name);
+
         $scope.parsedEntries = [];
         $scope.loading = true;
         $scope.httpStatus = 0;
@@ -87,7 +89,8 @@ angular.module('projekteApp')
 
     }])
 
-    .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', '$filter', function ($scope, dataService, screenSize, $filter) {
+    .controller('mapCtrl', [ '$scope', 'dataService', 'screenSize', '$filter', 'dateFilter',
+        function ($scope, dataService, screenSize, $filter, dateFilter) {
 
         /* set the map positions on mobile and desktop */
 
@@ -128,12 +131,10 @@ angular.module('projekteApp')
 
             }
             // define filter for week days
-            $scope.filterByDay = '';
-            $scope.setDateFriday = new Date('2016, 08, 26');
-            $scope.setDateSaturday = new Date('2016, 08, 27');
-            $scope.setDateSunday = new Date('2016, 08, 28');
-            $scope.getDatetime = new Date(); // get the day from user agent
-            $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+            $scope.setDateFriday = dateFilter.setDateFriday;
+            $scope.setDateSaturday =  dateFilter.setDateSaturday;
+            $scope.setDateSunday = dateFilter.setDateSunday;
+            $scope.getDatetime = dateFilter.getDatetime;
 
             if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
             {
