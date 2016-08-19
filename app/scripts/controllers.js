@@ -56,6 +56,7 @@ angular.module('projekteApp')
         /* load the content from dataService */
 
         $scope.parsedEntries = [];
+        $scope.loading = true;
         $scope.httpStatus = 0;
         $scope.LoadRequest = dataService.loadSpreadsheetData();
         dataService.loadSpreadsheetData()
@@ -75,7 +76,10 @@ angular.module('projekteApp')
                     });
                     }
 
-                });
+                }).finally(function() {
+            // called no matter success or failure
+            $scope.loading = false;
+        });
         
         $scope.trustSrc = function(src) {
             return $sce.trustAsResourceUrl(src);
