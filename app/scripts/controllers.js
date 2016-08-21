@@ -21,26 +21,37 @@ angular.module('projekteApp')
                 $scope.showmap = true;
             }
         };
+
+        // filter for week days
+
+        $scope.filterByDay = '';
+        $scope.setDateFriday = new Date('2016, 08, 19');
+        $scope.setDateSaturday = new Date('2016, 08, 20');
+        $scope.setDateSunday = new Date('2016, 08, 21');
+        $scope.getDatetime = new Date(); // get the day from user agent
+        $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+
+        if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
+        {
+            $scope.filterByDay = 'Freitag';
+            $scope.startbuttonLink = '#Freitag9';
+        }
+        else if ($scope.getDatetime.valueOf() === $scope.setDateSaturday.valueOf())
+        {
+            $scope.filterByDay = '!Sonntag';
+            $scope.startbuttonLink = '#Samstag9';
+        }
+        else if ($scope.getDatetime.valueOf() === $scope.setDateSunday.valueOf())
+        {
+            $scope.startbuttonLink = '#Sonntag10';
+        }
+        else {
+            $scope.filterByDay = '';
+        }
     }])
 
     .controller('dataFeedCtrl', ['$scope', 'dataService', '$sce', function ($scope, dataService, $sce) {
 
-        /* filter for week days 
-
-        $scope.filterByDay = '';
-        $scope.setDateFriday = new Date('2016, 07, 27');
-        $scope.getDatetime = new Date(); // get the day from user agent
-        $scope.getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
-
-        if ($scope.getDatetime.valueOf() >= $scope.setDateFriday.valueOf())
-        {
-            $scope.filterByDay = 'Freitag';
-        }
-        else
-        {
-            $scope.filterByDay = 'Samstag';
-        }
-*/
         /* load the content from dataService */
 
         $scope.parsedEntries = [];
