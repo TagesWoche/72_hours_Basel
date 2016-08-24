@@ -39,7 +39,7 @@
         <div class="inner-spinner"></div>
     </div>
 
-    <h1 class="starttitel">Besuch in Basel</h1>
+    <h1 class="starttitel">72 Stunden in Basel</h1>
 
 
 
@@ -72,7 +72,7 @@
                 
                 
             <input type="checkbox" ng-model="checked" id="masterchecker" ng-init="checked=true" ng-click="toggleLayer('all');">
-                <label for="masterchecker">Alle<br/>Tipps</label>
+            <label for="masterchecker">Alle<br/>Tipps</label>
             
             </div>
             
@@ -86,9 +86,9 @@
         <div id="articleheader">
             <div>
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
-            <a href="#Freitag9" target="_self">FR</a>
-            <a href="#Samstag9" target="_self">SA</a>    
-            <a href="#Sonntag10" target="_self">SO</a>
+            <a href="#Freitag9" target="_self"></a>
+            <a href="#Samstag9" target="_self"></a>    
+            <a href="#Sonntag10" target="_self"></a>
             </div>
         </div>
         <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}" id="{{ entry.datum }}" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
