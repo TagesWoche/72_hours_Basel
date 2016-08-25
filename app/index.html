@@ -91,7 +91,7 @@
             <a href="#Sonntag10" target="_self"></a>
             </div>
         </div>
-        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}" id="{{ entry.datum }}" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>

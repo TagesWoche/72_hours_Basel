@@ -297,6 +297,15 @@ i {
             margin-right:5%;
         }
 }
+
+.offset {
+    border-top: 65px solid transparent;
+    margin-top: -65px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
 // mobile navigation settings
 
 .mobilenav {
@@ -608,7 +617,7 @@ top:70px;
     margin:0 auto;
     width:100%;
     max-width:$max-width-content;
-    // padding-top:70px; padding if we want top space for navbar
+    padding-top:65px;
 }
 
 #content > article {
