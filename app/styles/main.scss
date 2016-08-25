@@ -512,6 +512,10 @@ label[for="mobilenav"] {
         }
 }
 
+.hide-titel {
+    display:none;
+}
+
 .leaflet-popup-content h2 {
     padding-top:6px;
     font-family: $titel;

@@ -9,12 +9,26 @@
     <meta name="description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang.">
     <meta name="author" content="Felix Michel, Stefan Kempf" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:url"           content="http://www.tageswoche.ch/cityguide" />
-	<meta property="og:type"          content="website" />
-	<meta property="og:title"         content="City Guide: Besuch in Basel" />
-	<meta property="og:description"   content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang." />
-	<meta property="og:image"         content="http://www.tageswoche.ch/cityguide/images/social/fbshare.jpg" />
+    <!-- Facebook -->
+    <meta property="og:url" content="http://www.tageswoche.ch/cityguide" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="City Guide: Besuch in Basel" />
+	<meta property="og:description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang." />
+	<meta property="og:image" content="http://www.tageswoche.ch/cityguide/images/social/fbshare.jpg" />
+    <!-- Twitter -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:url" content="http://www.tageswoche.ch/cityguide">
+      <meta name="twitter:site" content="@tageswoche">
+      <meta name="twitter:title" content="City Guide: Besuch in Basel">
+      <meta name="twitter:description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang.">
 
+      <meta name="twitter:creator" content="@felixmichel">
+
+
+      <meta name="twitter:image:src" content="http://www.tageswoche.ch/cityguide/images/social/fbshare.jpg">
+
+      <meta name="twitter:domain" content="tageswoche.ch">
+      <meta property="twitter:account_id" content="287795165" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -39,7 +53,7 @@
         <div class="inner-spinner"></div>
     </div>
 
-    <h1 class="starttitel">72 Stunden in Basel</h1>
+    <h1 class="starttitel" ng-class="hideTitel">72 Stunden in Basel</h1>
 
 
 
@@ -57,7 +71,7 @@
             <!-- Karte gemäss http://tombatossals.github.io/angular-leaflet-directive/examples/0000-viewer.html#/markers/groups-example -->
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
             <!-- <a class="socialshare german" href="#"></a> -->
-            <a class="socialshare english" href="#"></a>
+            <!--<a class="socialshare english" href="#"></a>-->
             <a class="socialshare twitter" target="_blank" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/cityguide/"></a>
             <a class="socialshare facebook" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/cityguide/&link=http://www.tageswoche.ch/cityguide/&name=Besuch%20in%20Basel&description=Geniessen%20Sie%20Basel%20mit%20den%20TagesWoche%20Tipps%20rund%20um%20Kultur,%20Shopping,%20Essen%20und%20Ausgang"></a>
             
@@ -91,23 +105,48 @@
             <a href="#Sonntag10" target="_self"></a>
             </div>
         </div>
-        <article ng-repeat="entry in parsedEntries | filter:{tag:filterByDay}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <div class="articlecontainer" style="margin-bottom: 30px;">
+        <h2>Freitag</h2>
+            <p>
+                Lorem ipsum
+            </p>
+        </div>
+
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
-            <div class="articlecontainer">
+            <div class="lead">
                 <h2>{{ entry.titel }}</h2>
                     
                 <div ng-if="entry.video" class="embed-container"><iframe ng-src="{{ trustSrc(entry.video) }}" frameborder="0" allowfullscreen></iframe></div>
                 <p ng-bind-html="entry.inhalt">{{ entry.inhalt }}</p>
-                <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="{{ entry.link }}" target="_blank">Webseite</a></span>
+                <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a><a href="{{ entry.link }}" target="_blank">Webseite</a></span>
             </div>
-        </article>  
+        </article>
+
+        <div class="lead" style="margin-bottom: 30px;">
+            <h2>Samstag</h2>
+            <p>
+                Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
+            </p>
+        </div>
+
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+            <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
+            <div class="articlecontainer">
+                <h2>{{ entry.titel }}</h2>
+
+                <div ng-if="entry.video" class="embed-container"><iframe ng-src="{{ trustSrc(entry.video) }}" frameborder="0" allowfullscreen></iframe></div>
+                <p ng-bind-html="entry.inhalt">{{ entry.inhalt }}</p>
+                <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a><a href="{{ entry.link }}" target="_blank">Webseite</a></span>
+            </div>
+        </article>
     </section>
       
     <footer>
     <p>
         <b>Konzept:</b> Renato Beck, Felix Michel, Stefan Kempf<br>
         <b>Design &amp; Code:</b> Felix Michel, Stefan Kempf<br>
-        <b>Bilder:</b> Nils Fisch - <b>Text:</b> TagesWoche
+        <b>Bilder:</b> Nils Fisch<b> Text:</b> TagesWoche
         
         
     </p>
