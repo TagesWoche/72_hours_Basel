@@ -5,7 +5,6 @@ angular.module('projekteApp')
     .controller('showHideMapCtrl', ['$scope', 'dateFilter', function($scope, dateFilter) {
 
         // define filter for week days
-        $scope.filterByDay = '';
         $scope.setDateFriday = dateFilter.setDateFriday;
         $scope.setDateSaturday =  dateFilter.setDateSaturday;
         $scope.setDateSunday = dateFilter.setDateSunday;
@@ -13,20 +12,29 @@ angular.module('projekteApp')
 
         if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
         {
-            $scope.filterByDay = 'Freitag';
-            $scope.startbuttonLink = '#Freitag9';
+            $scope.showFriday = true;
+            $scope.showSaturday = false;
+            $scope.showSunday = false;
+            $scope.startbuttonLink = '#freitagstart';
         }
         else if ($scope.getDatetime.valueOf() === $scope.setDateSaturday.valueOf())
         {
-            $scope.filterByDay = '!Sonntag';
-            $scope.startbuttonLink = '#Samstag9';
+            $scope.showFriday = true;
+            $scope.showSaturday = true;
+            $scope.showSunday = false;
+            $scope.startbuttonLink = '#samstagstart';
         }
         else if ($scope.getDatetime.valueOf() === $scope.setDateSunday.valueOf())
         {
-            $scope.startbuttonLink = '#Sonntag10';
+            $scope.showFriday = true;
+            $scope.showSaturday = true;
+            $scope.showSunday = true;
+            $scope.startbuttonLink = '#sonntagstart';
         }
         else {
-            $scope.filterByDay = '';
+            $scope.showFriday = true;
+            $scope.showSaturday = true;
+            $scope.showSunday = false;
             $scope.startbuttonLink = '#content';
         }
 

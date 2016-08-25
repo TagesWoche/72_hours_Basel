@@ -100,17 +100,17 @@
         <div id="articleheader">
             <div>
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
-            <a href="#freitagstart" target="_self"></a>
-            <a href="#samstagstart" target="_self"></a>    
-            <a href="#sonntagstart" target="_self"></a>
+            <a ng-if="showFriday" href="#freitagstart" target="_self"></a>
+            <a ng-if="showSaturday" href="#samstagstart" target="_self"></a>
+            <a ng-if="showSunday" href="#sonntagstart" target="_self"></a>
             </div>
         </div>
-        <div class="lead" id="freitagstart">
+        <div ng-if="showFriday" class="lead" id="freitagstart">
         <h2>Freitag</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            <p>accusam et justo duo dolores et ea rebum.</p>
         </div>
 
-        <article ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-if="showFriday" ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
@@ -121,12 +121,12 @@
             </div>
         </article>
 
-        <div class="lead" id="samstagstart">
+        <div ng-if="showSaturday" class="lead" id="samstagstart">
             <h2>Samstag</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
         </div>
 
-        <article ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-if="showSaturday" ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
@@ -137,12 +137,12 @@
             </div>
         </article>
         
-        <div class="lead" id="sonntagstart">
+        <div ng-if="showSunday" class="lead" id="sonntagstart">
             <h2>Sonntag</h2>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
         </div>
 
-        <article ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-if="showSunday" ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
