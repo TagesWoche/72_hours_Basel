@@ -100,21 +100,19 @@
         <div id="articleheader">
             <div>
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
-            <a href="#Freitag9" target="_self"></a>
-            <a href="#Samstag9" target="_self"></a>    
-            <a href="#Sonntag10" target="_self"></a>
+            <a href="#freitagstart" target="_self"></a>
+            <a href="#samstagstart" target="_self"></a>    
+            <a href="#sonntagstart" target="_self"></a>
             </div>
         </div>
-        <div class="articlecontainer" style="margin-bottom: 30px;">
+        <div class="lead" id="freitagstart">
         <h2>Freitag</h2>
-            <p>
-                Lorem ipsum
-            </p>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
         </div>
 
         <article ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
-            <div class="lead">
+            <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
                     
                 <div ng-if="entry.video" class="embed-container"><iframe ng-src="{{ trustSrc(entry.video) }}" frameborder="0" allowfullscreen></iframe></div>
@@ -123,11 +121,9 @@
             </div>
         </article>
 
-        <div class="lead" style="margin-bottom: 30px;">
+        <div class="lead" id="samstagstart">
             <h2>Samstag</h2>
-            <p>
-                Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum
-            </p>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
         </div>
 
         <article ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
@@ -140,6 +136,23 @@
                 <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a><a href="{{ entry.link }}" target="_blank">Webseite</a></span>
             </div>
         </article>
+        
+        <div class="lead" id="sonntagstart">
+            <h2>Sonntag</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+        </div>
+
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+            <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
+            <div class="articlecontainer">
+                <h2>{{ entry.titel }}</h2>
+
+                <div ng-if="entry.video" class="embed-container"><iframe ng-src="{{ trustSrc(entry.video) }}" frameborder="0" allowfullscreen></iframe></div>
+                <p ng-bind-html="entry.inhalt">{{ entry.inhalt }}</p>
+                <span class="post-meta"><a href="{{ entry.navigation }}" target="_blank">Routenplaner</a><a href="{{ entry.link }}" target="_blank">Webseite</a></span>
+            </div>
+        </article>
+        
     </section>
       
     <footer>
