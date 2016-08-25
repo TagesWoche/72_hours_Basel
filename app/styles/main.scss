@@ -332,18 +332,17 @@ label[for="mobilenav"] {
         }
 }
 
-.mobilenav:checked ~ h1 {
-    display:none;
-}
+
 .mobilenav:checked ~ label {
     background:url("../images/labels/menuclose.svg");
 }
 .mobilenav:checked ~ #legende {
-    height: 350px;
+        @include MQ(M) {
+            height: 350px;
+    }
          @include MQ(S) {
             height:450px;
-            
-        }
+    }
 }
 
 // checkboxes
@@ -414,6 +413,17 @@ label[for="mobilenav"] {
     position:absolute;
     top:0;
     left:0;
+}
+
+#legende label:focus, #legende input:focus, #legende label, #legende input {
+    outline:none;
+    outline-width: 0;
+    user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 
@@ -502,7 +512,7 @@ label[for="mobilenav"] {
     text-align:center;
     font-weight:bold;
     text-shadow: 1px 2px 9px rgba(0, 0, 0, 1);
-    animation: titelswipe 1.3s ease-in 3s forwards;
+    animation: titelswipe 1.3s ease-in 5s forwards;
         @include MQ(M) {
             top:85px;
             font-size:40px;
@@ -683,6 +693,15 @@ top:70px;
         }
 }
 
+.articlecontainer p a {
+    color:$tawo;
+    text-decoration: none;
+}
+
+.articlecontainer p a:hover {
+    border-bottom:1px solid $tawo;
+}
+
 .articlecontainer figure > img {
     width:100%;
 }
@@ -780,6 +799,34 @@ top:70px;
     display: inline-block;
     color: $lightgrey;
     text-decoration: none;
+}
+
+.post-meta a:before {
+    content:" ";
+    background-size: 14px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    position:relative;
+    left:-6px;
+    top: 1px;
+}
+
+.post-meta a:nth-child(1) {
+    padding-right:15px;
+}
+.post-meta a:nth-child(2) {
+    padding-left:15px;
+}
+.post-meta a:nth-child(1):before {
+    background:url("../images/labels/routenplaner-small.svg") no-repeat;
+    
+}
+
+.post-meta a:nth-child(2):before {
+   
+    background:url("../images/labels/link.svg") no-repeat;
+   
 }
 
 .post-meta a:hover {
