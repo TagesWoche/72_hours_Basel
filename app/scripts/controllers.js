@@ -34,7 +34,7 @@ angular.module('projekteApp')
         else {
             $scope.showFriday = true;
             $scope.showSaturday = true;
-            $scope.showSunday = false;
+            $scope.showSunday = true;
             $scope.startbuttonLink = '#content';
         }
 
