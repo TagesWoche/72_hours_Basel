@@ -40,6 +40,8 @@ angular.module('projekteApp')
             {
                 $scope.buttonText = 'Karte anzeigen';
                 $scope.showmap = false;
+                $scope.hideTitel = 'hide-titel';
+
             }
             else
             {
@@ -55,7 +57,6 @@ angular.module('projekteApp')
         /* load the content from dataService */
 
         $scope.name = dataService.name;
-        console.log($scope.name);
 
         $scope.parsedEntries = [];
         $scope.loading = true;
