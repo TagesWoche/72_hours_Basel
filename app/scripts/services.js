@@ -44,6 +44,7 @@ angular.module('projekteApp')
         // get the day from user agent
         var getDatetime = new Date();
         getDatetime.setHours(0,0,0,0); // reset hours to zero in order to be able to compare the values
+        console.log(getDatetime);
 
         return {
             setDateFriday : setDateFriday,

@@ -10,7 +10,12 @@ angular.module('projekteApp')
         $scope.setDateSunday = dateFilter.setDateSunday;
         $scope.getDatetime = dateFilter.getDatetime;
 
-        if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
+        $scope.showFriday = true;
+        $scope.showSaturday = false;
+        $scope.showSunday = false;
+        $scope.startbuttonLink = '#freitagstart';
+
+        /*if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
         {
             $scope.showFriday = true;
             $scope.showSaturday = false;
@@ -36,7 +41,7 @@ angular.module('projekteApp')
             $scope.showSaturday = true;
             $scope.showSunday = true;
             $scope.startbuttonLink = '#content';
-        }
+        }*/
 
         /* toggle visibility of map */
 
@@ -106,15 +111,16 @@ angular.module('projekteApp')
         if (screenSize.is('xs, sm'))
         {
             // on mobile
-            $scope.latitude =  47.5655;
-            $scope.longitude = 7.5965;
+            $scope.latitude =  47.572363;
+            $scope.longitude = 7.589976;
             $scope.zoom = 14;
         }
         else
         {
             // on desktop
-            $scope.latitude =  47.5592;
-            $scope.longitude = 7.5999;
+
+            $scope.latitude =  47.572006;
+            $scope.longitude =  7.60;
             $scope.zoom = 14;
         }
 
@@ -145,20 +151,24 @@ angular.module('projekteApp')
             $scope.setDateSunday = dateFilter.setDateSunday;
             $scope.getDatetime = dateFilter.getDatetime;
 
-            if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
+            $scope.markers = $filter('filter')($scope.markers, {tag: 'Freitag'});
+
+           /* if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
             {
                 $scope.markers = $filter('filter')($scope.markers, {tag: 'Freitag'});
             }
             else if ($scope.getDatetime.valueOf() === $scope.setDateSaturday.valueOf())
             {
                 $scope.markers = $filter('filter')($scope.markers, {tag: 'Samstag'});
+
             }
             else if ($scope.getDatetime.valueOf() === $scope.setDateSunday.valueOf())
             {
                 $scope.markers = $filter('filter')($scope.markers, {tag: 'Sonntag'});
-            }
-            console.log($scope.markers);
+            }*/
         });
+
+
 
         /* define the icon style for the map markers */
 

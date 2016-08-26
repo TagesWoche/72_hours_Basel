@@ -5,22 +5,22 @@
     <meta http-Equiv="Cache-Control" Content="no-cache">
     <meta http-Equiv="Pragma" Content="no-cache">
     <meta http-Equiv="Expires" Content="0">
-    <title>City Guide: Besuch in Basel</title>
-    <meta name="description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang.">
-    <meta name="author" content="Felix Michel, Stefan Kempf" />
+    <title>City Guide: 72 Stunden in Basel</title>
+    <meta name="description" content="Die TagesWoche hat aus den Lieblingsorten der Redaktion und Leserschaft einen Stadtführer gezimmert – mit interaktiver Karte, Routenplan und vielen schönen Tipps.">
+    <meta name="author" content="Felix Michel, Stefan Kempf, Renato Beck" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Facebook -->
     <meta property="og:url" content="http://www.tageswoche.ch/cityguide" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="City Guide: Besuch in Basel" />
-	<meta property="og:description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang." />
+	<meta property="og:title" content="City Guide: 72 Stunden in Basel" />
+	<meta property="og:description" content="Die TagesWoche hat aus den Lieblingsorten der Redaktion und Leserschaft einen Stadtführer gezimmert – mit interaktiver Karte, Routenplan und vielen schönen Tipps." />
 	<meta property="og:image" content="http://www.tageswoche.ch/cityguide/images/social/fbshare.jpg" />
     <!-- Twitter -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:url" content="http://www.tageswoche.ch/cityguide">
       <meta name="twitter:site" content="@tageswoche">
-      <meta name="twitter:title" content="City Guide: Besuch in Basel">
-      <meta name="twitter:description" content="Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang.">
+      <meta name="twitter:title" content="City Guide: 72 Stunden in Basel">
+      <meta name="twitter:description" content="Die TagesWoche hat aus den Lieblingsorten der Redaktion und Leserschaft einen Stadtführer gezimmert – mit interaktiver Karte, Routenplan und vielen schönen Tipps.">
 
       <meta name="twitter:creator" content="@felixmichel">
 
@@ -72,11 +72,11 @@
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
             <!-- <a class="socialshare german" href="#"></a> -->
             <!--<a class="socialshare english" href="#"></a>-->
-            <a class="socialshare twitter" target="_blank" href="https://twitter.com/intent/tweet?text=%23BesuchinBasel%20auf%20%40TagesWoche&url=http://www.tageswoche.ch/cityguide/"></a>
-            <a class="socialshare facebook" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=204329636307540&redirect_uri=http://www.tageswoche.ch/cityguide/&link=http://www.tageswoche.ch/cityguide/&name=Besuch%20in%20Basel&description=Geniessen%20Sie%20Basel%20mit%20den%20TagesWoche%20Tipps%20rund%20um%20Kultur,%20Shopping,%20Essen%20und%20Ausgang"></a>
+            <a class="socialshare twitter" target="_blank" href="https://twitter.com/home?status=72%20Stunden%20in%20Basel%20%E2%80%93%20der%20Stadtf%C3%BChrer%20der%20%40TagesWoche%20f%C3%BCr%20ein%20langes%20Wochenende%20in%20Basel%20%23baselcityguide%20http%3A//www.tageswoche.ch/cityguide/"></a>
+            <a class="socialshare facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.tageswoche.ch/cityguide/"></a>
             
-            <h2>Entdecken Sie Basel</h2>
-            <p>Geniessen Sie Basel mit den TagesWoche Tipps rund um Kultur, Shopping, Essen und Ausgang. Stöbern Sie durch unsere Ideen oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die komplette Tour</a>.</p>
+            <h2>72 Stunden in Basel</h2>
+            <p>Besuchen Sie die Lieblingsorte der TagesWoche und ihrer Leserschaft in Basel. Stöbern Sie in unseren Tipps oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die Freitags-Tour</a>. Den kompletten Reiseführer lesen Sie am Sonntag.</p>
             <div id="inputwrap">
             <input id="Essen" type="checkbox" ng-click="toggleLayer('Essen')"  ng-checked="checked"><label for="Essen">Essen</label>
             <input id="Trinken" type="checkbox" ng-click="toggleLayer('Trinken')" ng-checked="checked"><label for="Trinken">Trinken</label>
@@ -89,9 +89,6 @@
             <label for="masterchecker">Alle<br/>Tipps</label>
             
             </div>
-            
-            <!-- <a href="" id="hotelsbutton"  ng-click="toggleLayer('hotels')" onClick="javascript:changeTextHotels();">Hotels ausblenden</a><br/>
-            <a href="" id="restaurantbutton" ng-click="toggleLayer('restaurants')" onClick="javascript:changeTextRestaurants();">Restaurants ausblenden</a> -->
         </div>
         
     </section>
@@ -106,8 +103,8 @@
             </div>
         </div>
         <div ng-if="showFriday" class="lead" id="freitagstart">
-        <h2>der Freitag</h2>
-            <p><b>72 Stunden in Basel:</b> Der Freitag beginnt mit dem nötigen bisschen Sightseeing, es folgt reichlich Shopping in den angesagtesten Läden der Stadt und eine lange Nacht am Hafen.</p>
+        <h2>der Freitag,</h2>
+            <p>mit dem nötigen bisschen Sightseeing, reichlich Shopping in den angesagtesten Läden der Stadt und einer langen Nacht am Hafen.</p>
         </div>
 
         <article ng-if="showFriday" ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
@@ -122,8 +119,8 @@
         </article>
 
         <div ng-if="showSaturday" class="lead" id="samstagstart">
-            <h2>der Samstag</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            <h2>der Samstag,</h2>
+            <p>mit einem Besuch auf dem Markt, faulen Stunden am Basler Stadtstrand und einer exzessiven Tanznacht.</p>
         </div>
 
         <article ng-if="showSaturday" ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
@@ -138,8 +135,8 @@
         </article>
         
         <div ng-if="showSunday" class="lead" id="sonntagstart">
-            <h2>der Sonntag</h2>
-            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+            <h2>der Sonntag,</h2>
+            <p>mit einem fürstlichen Brunch, einem Ausflug tief ins nahe Land und italienischer Spitzenküche frei von allen Klischees.</p>
         </div>
 
         <article ng-if="showSunday" ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
@@ -205,7 +202,7 @@
     _sf_async_config.domain = 'tageswoche.ch';
     _sf_async_config.useCanonical = true;
     _sf_async_config.sections = 'TagesWoche';
-    _sf_async_config.authors = 'Felix Michel, Stefan Kempf';
+    _sf_async_config.authors = 'Felix Michel, Stefan Kempf, Renato Beck';
     /** CONFIGURATION END **/
     (function(){
         function loadChartbeat() {
