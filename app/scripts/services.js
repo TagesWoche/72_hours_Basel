@@ -33,9 +33,9 @@ angular.module('projekteApp')
         return {
             loadSpreadsheetData: loadSpreadsheetData
         };
-    }])
+    }]);
 
-    .factory('dateFilter', function () {
+    /*.factory('dateFilter', function () {
 
         var setDateFriday = new Date('2016, 08, 26');
         var setDateSaturday = new Date('2016, 08, 27');
@@ -55,3 +55,4 @@ angular.module('projekteApp')
         };
 
     });
+*/

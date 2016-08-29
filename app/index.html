@@ -76,7 +76,7 @@
             <a class="socialshare facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.tageswoche.ch/cityguide/"></a>
             
             <h2>72 Stunden in Basel</h2>
-            <p>Besuchen Sie die Lieblingsorte der TagesWoche und ihrer Leserschaft in Basel. Stöbern Sie in unseren Tipps oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die Freitags-Tour</a>. Den kompletten Reiseführer lesen Sie am Sonntag.</p>
+            <p>Besuchen Sie die Lieblingsorte der TagesWoche und ihrer Leserschaft in Basel. Stöbern Sie in unseren Tipps oder starten Sie <a ng-click="toggleMap()" href="#content" target="_self">die komplette Tour</a>.</p>
             <div id="inputwrap">
             <input id="Essen" type="checkbox" ng-click="toggleLayer('Essen')"  ng-checked="checked"><label for="Essen">Essen</label>
             <input id="Trinken" type="checkbox" ng-click="toggleLayer('Trinken')" ng-checked="checked"><label for="Trinken">Trinken</label>
@@ -97,17 +97,17 @@
         <div id="articleheader">
             <div>
             <a href="http://www.tageswoche.ch" target="_blank"><img src="images/tawo-logo.png" /></a>
-            <a ng-if="showFriday" href="#freitagstart" target="_self"></a>
-            <a ng-if="showSaturday" href="#samstagstart" target="_self"></a>
-            <a ng-if="showSunday" href="#sonntagstart" target="_self"></a>
+            <a href="#freitagstart" target="_self"></a>
+            <a href="#samstagstart" target="_self"></a>
+            <a href="#sonntagstart" target="_self"></a>
             </div>
         </div>
-        <div ng-if="showFriday" class="lead" id="freitagstart">
+        <div class="lead" id="freitagstart">
         <h2>der Freitag,</h2>
             <p>mit dem nötigen bisschen Sightseeing, reichlich Shopping in den angesagtesten Läden der Stadt und einer langen Nacht am Hafen.</p>
         </div>
 
-        <article ng-if="showFriday" ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Freitag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
@@ -118,12 +118,12 @@
             </div>
         </article>
 
-        <div ng-if="showSaturday" class="lead" id="samstagstart">
+        <div class="lead" id="samstagstart">
             <h2>der Samstag,</h2>
             <p>mit einem Besuch auf dem Markt, faulen Stunden am Basler Stadtstrand und einer exzessiven Tanznacht.</p>
         </div>
 
-        <article ng-if="showSaturday" ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Samstag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>
@@ -134,12 +134,12 @@
             </div>
         </article>
         
-        <div ng-if="showSunday" class="lead" id="sonntagstart">
+        <div class="lead" id="sonntagstart">
             <h2>der Sonntag,</h2>
             <p>mit einem fürstlichen Brunch, einem Ausflug tief ins nahe Land und italienischer Spitzenküche frei von allen Klischees.</p>
         </div>
 
-        <article ng-if="showSunday" ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
+        <article ng-repeat="entry in parsedEntries | filter:{tag:'Sonntag'}" id="{{ entry.datum }}" class="offset" style="background-image:url('images/standorte/{{ entry.images }}.jpg');">
             <span>{{ entry.tag }}<br/><strong>{{ entry.stunde }} Uhr</strong></span>
             <div class="articlecontainer">
                 <h2>{{ entry.titel }}</h2>

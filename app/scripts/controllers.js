@@ -4,16 +4,15 @@ angular.module('projekteApp')
 
     .controller('showHideMapCtrl', ['$scope', 'dateFilter', function($scope, dateFilter) {
 
-        // define filter for week days
+       /* // define filter for week days
         $scope.setDateFriday = dateFilter.setDateFriday;
         $scope.setDateSaturday =  dateFilter.setDateSaturday;
         $scope.setDateSunday = dateFilter.setDateSunday;
         $scope.getDatetime = dateFilter.getDatetime;
 
         $scope.showFriday = true;
-        $scope.showSaturday = false;
-        $scope.showSunday = false;
-        $scope.startbuttonLink = '#freitagstart';
+        $scope.showSaturday = true;
+        $scope.showSunday = true;*/
 
         /*if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
         {
@@ -46,6 +45,7 @@ angular.module('projekteApp')
         /* toggle visibility of map */
 
         $scope.showmap = true;
+        $scope.startbuttonLink = '#content';
         $scope.buttonText = 'Tour beginnen';
 
         $scope.toggleMap = function(){
@@ -111,16 +111,16 @@ angular.module('projekteApp')
         if (screenSize.is('xs, sm'))
         {
             // on mobile
-            $scope.latitude =  47.572363;
-            $scope.longitude = 7.589976;
+            $scope.latitude =  47.5655;
+            $scope.longitude = 7.5965;
             $scope.zoom = 14;
         }
         else
         {
             // on desktop
 
-            $scope.latitude =  47.572006;
-            $scope.longitude =  7.60;
+            $scope.latitude =  47.5592;
+            $scope.longitude = 7.5999;
             $scope.zoom = 14;
         }
 
@@ -145,13 +145,13 @@ angular.module('projekteApp')
                 });
 
             }
-            // define filter for week days
+/*            // define filter for week days
             $scope.setDateFriday = dateFilter.setDateFriday;
             $scope.setDateSaturday =  dateFilter.setDateSaturday;
             $scope.setDateSunday = dateFilter.setDateSunday;
-            $scope.getDatetime = dateFilter.getDatetime;
+            $scope.getDatetime = dateFilter.getDatetime;*/
 
-            $scope.markers = $filter('filter')($scope.markers, {tag: 'Freitag'});
+            // $scope.markers = $filter('filter')($scope.markers, {tag: '!Sonntag'});
 
            /* if ($scope.getDatetime.valueOf() === $scope.setDateFriday.valueOf())
             {
